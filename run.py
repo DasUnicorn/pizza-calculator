@@ -3,16 +3,19 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
 def welcome():
+	"""
+	Printing the Welcome message at the beginning of each game on the screen
+	"""
 	print("Welcome to the game!")
 
 
 def main():
     """
-    Run the game.
+    Base function running the game.
     """
     welcome()
 
 
-# Ensures main is only executed when the script is directly run
+# Making sure the script is run directly
 if __name__ == "__main__":
     main()
