@@ -1,31 +1,104 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# "Work from Home" - Story Telling Game
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Check out the [live-site](https://murmuring-peak-78506-458d466df584.herokuapp.com/).
 
-## Reminders
+![Mock up](/assets/img/readme/mockup.png)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+--- 
 
-## Creating the Heroku app
+# Content
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+<!-- toc -->
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+---
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Technologies Used
 
-Connect your GitHub repository and deploy as normal.
+* GitHub – code storage
+* Sublime Text - Editor
+* Heroku - Deployment
 
-## Constraints
+### Languages Used
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+Python
+(HTML and JavaScript from deployment template)
 
------
-Happy coding!
+### Frameworks, Libraries & Programs Used
+
+Github
+(NodeJS from deployment template)
+
+## User Experience
+
+### Target Audience
+
+
+### User stories
+
+
+## Design
+
+
+### Flowchart
+
+
+## Features 
+
+### Existing Features
+
+
+
+### Features Left to Implement
+
+
+
+### Accessibility
+
+
+## Testing
+
+
+
+### Validator Testing
+
+
+#### PEP8
+
+
+### Manual Testing
+
+
+### Unfixed Bugs
+
+
+### Fixed Bugs
+
+
+## Deployment
+
+
+
+### Local Development
+
+#### How to Clone
+
+1. Click the code button and copy the link of your preferred clone option.
+2. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+3. Type 'git clone' into the terminal, paste the link you copied in step 1 and press enter.
+
+More detailed steps are provided by github: [github guide to clone a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+
+#### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project.
+3. Click the Fork button in the top right corner.
+
+
+## Credits
+* Markdown Table of Content by [Jon Schlinkert](https://github.com/jonschlinkert/markdown-toc)
