@@ -66,7 +66,14 @@ def delete():
 def play():
     print("Let's play!")
 
-
+def read_file(story_file):
+    """
+    Function to open, read, print and close
+    story files to console.
+    """
+    with open(story_file) as file:
+        file_text = file.read()
+        print(file_text)
 
 def main():
     """
