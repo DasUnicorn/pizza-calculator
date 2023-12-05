@@ -26,8 +26,9 @@ def welcome():
     Printing the Welcome message at the beginning of each game on the screen
     """
     found_endings, number_endings = get_endings()
-    print("Welcome to 'work from home' a story telling game that takes you on a journey in your virtual home.")
-    print("You will habe to make decisions that effect your story and takes you on different paths.")
+    read_file("./assets/story/pc.txt")
+    print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.")
+    print("Your decisions affect the story and the end of your day.")
     print("Try to find as many ending as possible.")
     print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.")
     print("-------------------------------------")
