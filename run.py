@@ -30,12 +30,6 @@ def welcome():
     print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.")
 
 
-def login():
-    """
-    Log into Google Account
-    """
-
-
 def get_endings():
     """
     Getting the endings the user already found.
