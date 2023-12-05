@@ -31,6 +31,12 @@ class Player:
         return self.inventory
 
     #--- Setter functions --#
+    def set_stats(self, charisma, strength, luck, fellowship):
+        self.charisma = charisma
+        self.strength = strength
+        self.luck = luck 
+        self.fellowship = fellowship
+
     def set_charisma(self, value):
         self.charisma = value
 
