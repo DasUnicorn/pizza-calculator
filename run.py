@@ -1,4 +1,5 @@
 # import google auth and spreadsheet libaries
+import questionary
 import gspread
 from google.oauth2.service_account import Credentials
 from player import Player
@@ -63,8 +64,25 @@ def delete():
     print("Your score has been deleted.")
 
 
-def play():
-    print("Let's play!")
+def play(player):
+    read_file("./assets/story/sun.txt")
+    read_file("./assets/story/1-0-good-morning.txt")
+    choice = input("Which option do you choose? Write the number.")
+    if choice == "1":
+        player.set_stats(5, 2, 2, 4)
+        read_file("./assets/story/1-1-standup.txt")
+    elif choice == "2":
+        player.set_stats(3, 5, 1, 4)
+        read_file("./assets/story/1-2-workout.txt")
+    elif choice == "3":
+        player.set_stats(1, 1, 10, 1)
+        read_file("./assets/story/1-3-nap.txt")
+    elif choice == "4":
+        player.set_stats(2, 3, 3, 5)
+        read_file("./assets/story/1-4-chat.txt")
+    else:
+        print("ERROR!")
+
 
 def read_file(story_file):
     """
@@ -94,7 +112,7 @@ def main():
         else:
             print("Your score has NOT been deleted.")
     elif game == "start":
-        play()
+        play(player)
 
 
 
