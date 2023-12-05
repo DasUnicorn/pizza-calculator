@@ -1,5 +1,6 @@
 # import google auth and spreadsheet libaries
 import questionary
+import time
 import gspread
 from google.oauth2.service_account import Credentials
 from player import Player
@@ -25,16 +26,16 @@ def welcome():
     """
     Printing the Welcome message at the beginning of each game on the screen
     """
-    read_file("./assets/story/pc.txt")
-    slow_print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.")
-    slow_print("Your decisions affect the story and the end of your day.")
-    print("Try to find as many ending as possible.")
+    print_picture("./assets/story/pc.txt")
+    slow_print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.\n")
+    slow_print("Your decisions affect the story and the end of your day.\n")
+    slow_print("Try to find as many ending as possible.\n")
     check_score()
-    print("-------------------------------------\n")
+    slow_print("\n-------------------------------------\n")
 
 def check_score():
     found_endings, number_endings = get_endings()
-    print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.")
+    slow_print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.\n")
 
 def get_endings():
     """
@@ -56,7 +57,7 @@ def delete():
     """
     Delete the current score by setting all endings to false.
     """
-    print("...deleting your score...")
+    slow_print("\n...deleting your score...\n")
     data = endings.get_all_values()
     i = 1
 
@@ -64,15 +65,15 @@ def delete():
         endings.update_cell(i, 2, 'FALSE')
         i += 1
 
-    print("Your score has been deleted.")
+    slow_print("Your score has been deleted.\n")
 
 
 def play(player):
-    read_file("./assets/story/sun.txt")
+    print_picture("./assets/story/sun.txt")
     read_file("./assets/story/1-0-good-morning.txt")
 
     choice = questionary.select(
-    "What do you want to do?",
+    "What do you want to do?\n",
     choices=[
         "Joining the optional morning stand up.",
         "A pre-office workout.",
@@ -100,7 +101,7 @@ def play(player):
 def level2(player):
     read_file("./assets/story/2-0-call.txt")
     choice = questionary.select(
-    "What do you want to do?",
+    "What do you want to do?\n",
     choices=[
         "I am focused now, they can send me an e-mail.",
         "Take the call.",
@@ -109,7 +110,7 @@ def level2(player):
     if choice == "I am focused now, they can send me an e-mail.":
         read_file("./assets/story/2-2-lunch.txt")
         choice2 = questionary.select(
-            "What do you want to do?",
+            "What do you want to do?\n",
             choices=[
                 "Grab a Snack and go for a walk.",
                 "Cook a meal while watching learning videos about presentation skills.",
@@ -126,7 +127,7 @@ def level2(player):
     elif choice == "Take the call.":
         read_file("./assets/story/2-1-help.txt")
         choice2 = questionary.select(
-            "What do you want to do?",
+            "What do you want to do?\n",
             choices=[
                 "Help the colleague.",
                 "Decline and focus on your own work.",
@@ -150,22 +151,112 @@ def level3(player):
         end(1, "'What a great day working from home.'")
     else:
         read_file("./assets/story/3-2-worse.txt")
+        player.update_luck(-2)
+        choice = questionary.select(
+            "What do you want to do?\n",
+            choices=[
+                "Start talking to the computer.",
+                "Go for a walk to clean your mind.",
+            ]).ask()
+        if choice == "Start talking to the computer.":
+            read_file("./assets/story/3-3-talk.txt")
+            choice2 = questionary.select(
+            "Wait ... \n",
+            choices=[
+                "... is this morse-code?",
+                "... am I going crazy?",
+            ]).ask()
+            if choice2 == "... is this morse-code?":
+                if (player.get_fellowship >= 3) or (player.get_luck >= 5):
+                    level6(player)
+                else: 
+                    level7(player)
+            elif choice2 == "Stop by a a coffee.":
+                level7(player)
+            else:
+                print("ERROR!")
+        elif choice == "Go for a walk to clean your mind.":
+            read_file("./assets/story/3-4-walk.txt")
+            player.update_inventory("stick")
+            choice2 = questionary.select(
+            "What do you want to do?\n",
+            choices=[
+                "Go back home.",
+                "Stop by a a coffee.",
+            ]).ask()
+            if choice2 == "Go back home.":
+                level5(player)
+            elif choice2 == "Stop by a a coffee.":
+                if player.get_luck() >= 5:
+                    read_file("./assets/story/4-2-coffee-luck.txt")
+                    end(2, "Coffee Luck")
+                else:
+                    read_file("./assets/story/4-1-coffee.txt")
+                    level5(player)
+            else:
+                print("ERROR!")
+        else:
+            print("ERROR!")
+
 
 def level4(player):
     print("YEAH! LEVEL 4!")
 
-def read_file(story_file):
+def level5(player):
+    pass
+
+def level6(player):
+    read_file("./assets/story/6-0-code.txt")
+    choice = questionary.select(
+    "This is the moment to ...\n",
+    choices=[
+        "... take advantage of the situation.",
+        "... become friends with the machine.",
+    ]).ask()
+    if choice == "... become friends with the machine.":
+        read_file("./assets/story/6-2-friendship.txt")
+        end(3, "Humans and Machines")
+    elif choices == "... take advantage of the situation.":
+        read_file("./assets/story/6-1-deal.txt")
+        choice2 = questionary.select(
+        "What do you want to do?\n\n",
+        choices=[
+            "Make the deal.",
+            "Decline offer and talk further.",
+        ]).ask()
+        if choice2 == "Make the deal.":
+            read_file("./assets/story/6-3-make-deal.txt")
+            end(4, "quid pro quo")
+        else:
+            read_file("./assets/story/6-4-bridge.txt")
+            read_file("./assets/story/6-2-friendship.txt")
+            end(3, "Humans and Machines")
+
+def slow_print(text):
+    for char in text:
+        print(char, end = "", flush = True)
+        time.sleep(0.03)
+
+def print_picture(txt_file):
     """
-    Function to open, read, print and close
-    story files to console.
+    Function to print from txt file to console.
     """
-    with open(story_file) as file:
+    with open(txt_file) as file:
         file_text = file.read()
         print(file_text + "\n")
 
+
+def read_file(story_file):
+    """
+    Function to print slowly from txt file to console.
+    """
+    with open(story_file) as file:
+        file_text = file.read()
+        slow_print(file_text + "\n")
+
 def end(number, text):
     read_file("./assets/story/end.txt")
-    print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".")
+    slow_print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".")
     save_ending(number)
     check_score()
     choice = questionary.select(
@@ -179,9 +270,9 @@ def end(number, text):
         exit()
 
 def save_ending(number):
-    print("...saving your the ending...")
+    slow_print("...saving your the ending...")
     endings.update_cell(number, 2, 'TRUE')
-    print("Ending has been saved.")
+    slow_print("Ending has been saved.")
 
 def main():
     """
@@ -207,7 +298,7 @@ def main():
             if delete_check:
                 delete()
             else:
-                print("Your score has NOT been deleted.")
+                slow_print("Your score has NOT been deleted.")
         elif choice == "Start the game":
             play(player)
         else:
