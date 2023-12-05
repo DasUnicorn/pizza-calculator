@@ -25,7 +25,10 @@ class Player:
         return self.strength
 
     def get_luck(self):
-        return self.luck 
+        return self.luck
+
+    def get_fellowship(self):
+        return self.fellowship 
 
     def get_inventory(self):
         return self.inventory
