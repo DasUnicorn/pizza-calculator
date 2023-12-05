@@ -25,14 +25,16 @@ def welcome():
     """
     Printing the Welcome message at the beginning of each game on the screen
     """
-    found_endings, number_endings = get_endings()
     read_file("./assets/story/pc.txt")
-    print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.")
-    print("Your decisions affect the story and the end of your day.")
+    slow_print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.")
+    slow_print("Your decisions affect the story and the end of your day.")
     print("Try to find as many ending as possible.")
-    print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.")
-    print("-------------------------------------")
+    check_score()
+    print("-------------------------------------\n")
 
+def check_score():
+    found_endings, number_endings = get_endings()
+    print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.")
 
 def get_endings():
     """
@@ -93,6 +95,64 @@ def play(player):
     else:
         print("ERROR!")
 
+    level2(player)
+
+def level2(player):
+    read_file("./assets/story/2-0-call.txt")
+    choice = questionary.select(
+    "What do you want to do?",
+    choices=[
+        "I am focused now, they can send me an e-mail.",
+        "Take the call.",
+    ]).ask()
+
+    if choice == "I am focused now, they can send me an e-mail.":
+        read_file("./assets/story/2-2-lunch.txt")
+        choice2 = questionary.select(
+            "What do you want to do?",
+            choices=[
+                "Grab a Snack and go for a walk.",
+                "Cook a meal while watching learning videos about presentation skills.",
+            ]).ask()
+        if choice2 == "Grab a Snack and go for a walk.":
+            player.update_strength(2)
+        elif choice2 == "Cook a meal while watching learning videos about presentation skills.":
+            player.update_charisma(2)
+        else:
+            print("ERROR!")
+
+        level4(player)
+
+    elif choice == "Take the call.":
+        read_file("./assets/story/2-1-help.txt")
+        choice2 = questionary.select(
+            "What do you want to do?",
+            choices=[
+                "Help the colleague.",
+                "Decline and focus on your own work.",
+            ]).ask()
+        if choice2 == "Help the colleague.":
+            player.update_fellowship(2)
+        elif choice2 == "Decline and focus on your own work.":
+            player.update_fellowship(-2)
+        else:
+            print("ERROR!")
+
+        level3(player)
+    else:
+        print("ERROR!")
+
+
+def level3(player):
+    read_file("./assets/story/3-0-problem.txt")
+    if player.get_fellowship() >= 3:
+        read_file("./assets/story/3-1-solved.txt")
+        end(1, "'What a great day working from home.'")
+    else:
+        read_file("./assets/story/3-2-worse.txt")
+
+def level4(player):
+    print("YEAH! LEVEL 4!")
 
 def read_file(story_file):
     """
@@ -101,28 +161,57 @@ def read_file(story_file):
     """
     with open(story_file) as file:
         file_text = file.read()
-        print(file_text)
+        print(file_text + "\n")
+
+def end(number, text):
+    read_file("./assets/story/end.txt")
+    print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".")
+    save_ending(number)
+    check_score()
+    choice = questionary.select(
+    "And now?",
+    choices=[
+        "Restart the game!",
+        "Enough for today. Exit program.",
+    ]).ask()
+
+    if choice == "Enough for today. Exit program.":
+        exit()
+
+def save_ending(number):
+    print("...saving your the ending...")
+    endings.update_cell(number, 2, 'TRUE')
+    print("Ending has been saved.")
 
 def main():
     """
     Base function running the game.
     """
-    # Initial Player object is created
-    player = Player(0, 0, 0, 0, [])
 
-    welcome()
-    print("Type 'start', to start the game with your current score.")
-    print("Type 'delete', to delete your score and start from scratch.")
-    game = input()
-    if game == "delete":
-        print("Are you sure you want to delete your current score?")
-        delete_check = input("[Type 'YES' to delete your score:]")
-        if delete_check == "YES":
-            delete()
+    #One run is one loop
+    while True:
+        # Initial Player object is created
+        player = Player(0, 0, 0, 0, [])
+
+        welcome()
+        choice = questionary.select(
+        "What do you want to do?",
+        choices=[
+            "Start the game",
+            "Delete the current score",
+            "End the game"
+        ]).ask()
+    
+        if choice == "Delete the current score":
+            delete_check =questionary.confirm("Are you sure you want to delete your current score?", default=False).ask()
+            if delete_check:
+                delete()
+            else:
+                print("Your score has NOT been deleted.")
+        elif choice == "Start the game":
+            play(player)
         else:
-            print("Your score has NOT been deleted.")
-    elif game == "start":
-        play(player)
+            break;
 
 
 
