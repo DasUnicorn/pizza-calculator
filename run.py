@@ -1,22 +1,56 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+# import google auth and spreadsheet libaries
+import gspread
+from google.oauth2.service_account import Credentials
+
+# Setting up global variables to work with google sheets
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('workfromhome')
+
+endings = SHEET.worksheet('endings')
+
+# -----------------------------------------------------------
+
 
 def welcome():
     """
     Printing the Welcome message at the beginning of each game on the screen
     """
-    print("                    _       __                       _                           ")
-    print("                   | |     / _|                     | |                          ")
-    print("__      _____  _ __| | __ | |_ _ __ ___  _ __ ___   | |__   ___  _ __ ___   ___  ")
-    print("\ \ /\ / / _ \| '__| |/ / |  _| '__/ _ \| '_ ` _ \  | '_ \ / _ \| '_ ` _ \ / _ \ ")
-    print(" \ V  V / (_) | |  |   <  | | | | | (_) | | | | | | | | | | (_) | | | | | |  __/ ")
-    print("  \_/\_/ \___/|_|  |_|\_\ |_| |_|  \___/|_| |_| |_| |_| |_|\___/|_| |_| |_|\___| ")
-    print("---------------------------------------------------------------------------------")
-    print("")
+    found_endings, number_endings = get_endings()
     print("Welcome to 'work from home' a story telling game that takes you on a journey in your virtual home.")
     print("You will habe to make decisions that effect your story and takes you on different paths.")
     print("Try to find as many ending as possible.")
+    print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.")
+
+
+def login():
+    """
+    Log into Google Account
+    """
+
+
+def get_endings():
+    """
+    Getting the endings the user already found.
+    """
+    data = endings.get_all_values()
+    found_endings = 0
+    number_endings = 0
+
+    for data in data:
+        number_endings += 1
+
+        if data[1] == "TRUE": 
+            found_endings += 1
+    
+    return found_endings, number_endings
 
 
 def main():
@@ -24,6 +58,7 @@ def main():
     Base function running the game.
     """
     welcome()
+    login()
 
 
 # Making sure the script is run directly
