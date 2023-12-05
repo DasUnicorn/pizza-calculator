@@ -1,6 +1,7 @@
 # import google auth and spreadsheet libaries
 import gspread
 from google.oauth2.service_account import Credentials
+from player import Player
 
 # Setting up global variables to work with google sheets
 SCOPE = [
@@ -16,7 +17,7 @@ SHEET = GSPREAD_CLIENT.open('workfromhome')
 
 endings = SHEET.worksheet('endings')
 
-# -----------------------------------------------------------
+# ----------------------------------------------------------- #
 
 
 def welcome():
@@ -66,10 +67,14 @@ def play():
     print("Let's play!")
 
 
+
 def main():
     """
     Base function running the game.
     """
+    # Initial Player object is created
+    player = Player(0, 0, 0, 0, [])
+
     welcome()
     print("Type 'start', to start the game with your current score.")
     print("Type 'delete', to delete your score and start from scratch.")
