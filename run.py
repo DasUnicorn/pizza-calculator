@@ -67,17 +67,26 @@ def delete():
 def play(player):
     read_file("./assets/story/sun.txt")
     read_file("./assets/story/1-0-good-morning.txt")
-    choice = input("Which option do you choose? Write the number.")
-    if choice == "1":
+
+    choice = questionary.select(
+    "What do you want to do?",
+    choices=[
+        "Joining the optional morning stand up.",
+        "A pre-office workout.",
+        "Taking a nap.",
+        "Chatting with colleagues"
+    ]).ask()
+
+    if choice == "Joining the optional morning stand up.":
         player.set_stats(5, 2, 2, 4)
         read_file("./assets/story/1-1-standup.txt")
-    elif choice == "2":
+    elif choice == "A pre-office workout.":
         player.set_stats(3, 5, 1, 4)
         read_file("./assets/story/1-2-workout.txt")
-    elif choice == "3":
+    elif choice == "Taking a nap.":
         player.set_stats(1, 1, 10, 1)
         read_file("./assets/story/1-3-nap.txt")
-    elif choice == "4":
+    elif choice == "Chatting with colleagues":
         player.set_stats(2, 3, 3, 5)
         read_file("./assets/story/1-4-chat.txt")
     else:
