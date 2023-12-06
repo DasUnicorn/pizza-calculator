@@ -1,8 +1,9 @@
-# import google auth and spreadsheet libaries
 import questionary
 import time
+# import google auth and spreadsheet libaries
 import gspread
 from google.oauth2.service_account import Credentials
+# import local class
 from player import Player
 
 # Setting up global variables to work with google sheets
@@ -31,9 +32,12 @@ def welcome():
     slow_print("Your decisions affect the story and the end of your day.\n")
     slow_print("Try to find as many ending as possible.\n")
     check_score()
-    slow_print("\n-------------------------------------\n")
+    print("\n-------------------------------------\n")
 
 def check_score():
+    """
+    Checks the number of endings found and the number of endings in total.
+    """
     found_endings, number_endings = get_endings()
     slow_print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.\n")
 
@@ -69,6 +73,9 @@ def delete():
 
 
 def play(player):
+    """
+    The start of the gameplay that divert in the storylines
+    """
     print_picture("./assets/story/sun.txt")
     read_file("./assets/story/1-0-good-morning.txt")
 
@@ -99,6 +106,9 @@ def play(player):
     level2(player)
 
 def level2(player):
+    """
+    Decisiontree level 2
+    """
     read_file("./assets/story/2-0-call.txt")
     choice = questionary.select(
     "What do you want to do?\n",
@@ -145,6 +155,9 @@ def level2(player):
 
 
 def level3(player):
+    """
+    Decisiontree level 3
+    """
     read_file("./assets/story/3-0-problem.txt")
     if player.get_fellowship() >= 3:
         read_file("./assets/story/3-1-solved.txt")
@@ -200,12 +213,21 @@ def level3(player):
 
 
 def level4(player):
-    print("YEAH! LEVEL 4!")
+    """
+    Decisiontree level 4
+    """
+    print("YEAH! LEVEL 4!") #--------------------------------------------------------------------#
 
 def level5(player):
-    pass
+    """
+    Decisiontree level 5
+    """
+    pass #---------------------------------------------------------------------------------------#
 
 def level6(player):
+    """
+    Decisiontree level 6
+    """
     read_file("./assets/story/6-0-code.txt")
     choice = questionary.select(
     "This is the moment to ...\n",
@@ -233,6 +255,9 @@ def level6(player):
             end(3, "Humans and Machines")
 
 def slow_print(text):
+    """
+    Function to print slowly from text file to console.
+    """
     for char in text:
         print(char, end = "", flush = True)
         time.sleep(0.03)
@@ -255,6 +280,9 @@ def read_file(story_file):
         slow_print(file_text + "\n")
 
 def end(number, text):
+    """
+    Displays the "end" ascii art, number and name of ending, saves the ending found.
+    """
     read_file("./assets/story/end.txt")
     slow_print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".")
     save_ending(number)
@@ -270,6 +298,9 @@ def end(number, text):
         exit()
 
 def save_ending(number):
+    """
+    Saves the given entry to the google sheet
+    """
     slow_print("...saving your the ending...")
     endings.update_cell(number, 2, 'TRUE')
     slow_print("Ending has been saved.")
@@ -278,8 +309,7 @@ def main():
     """
     Base function running the game.
     """
-
-    #One run is one loop
+    #One game run is one loop
     while True:
         # Initial Player object is created
         player = Player(0, 0, 0, 0, [])
@@ -303,8 +333,6 @@ def main():
             play(player)
         else:
             break;
-
-
 
 # Making sure the script is run directly
 if __name__ == "__main__":
