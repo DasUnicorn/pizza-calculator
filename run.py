@@ -195,11 +195,11 @@ def level3(player):
             "What do you want to do?\n",
             choices=[
                 "Go back home.",
-                "Stop by a a coffee.",
+                "Stop for a coffee.",
             ]).ask()
             if choice2 == "Go back home.":
                 level5(player)
-            elif choice2 == "Stop by a a coffee.":
+            elif choice2 == "Stop for a coffee.":
                 if player.get_luck() >= 5:
                     read_file("./assets/story/4-2-coffee-luck.txt")
                     end(2, "Coffee Luck")
@@ -222,7 +222,21 @@ def level5(player):
     """
     Decisiontree level 5
     """
-    pass #---------------------------------------------------------------------------------------#
+    read_file("./assets/story/5-0-home.txt")
+    choice = questionary.select(
+    "What do you want to do?\n",
+    choices=[
+        "Hide and prepaire for an attack.",
+        "Storm and attack!",
+    ]).ask()
+    if choice == "Hide and prepaire for an attack.":
+        if player.get_strength() >=5 :
+            level12()
+        else:
+            level13()
+    else:
+        level13()
+
 
 def level6(player):
     """
@@ -333,6 +347,9 @@ def level12(player):
     elif choice == "Call the police.":
         read_file("./assets/story/12-2-police.txt")
         end(6, "1312")
+
+def level13(player):
+    pass
 
 
 def slow_print(text):
