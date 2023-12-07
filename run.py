@@ -316,7 +316,7 @@ def level9(player):
             ]).ask()
             if choice2 == "Beg for mercy.":
                 level11(player)
-            elif: choice2 == "RUN!":
+            elif choice2 == "RUN!":
                 level10(player)
     elif choice == "Press the Power Button.":
         read_file("./assets/story/9-3-power.txt")
