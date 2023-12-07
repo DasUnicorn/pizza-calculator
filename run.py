@@ -183,8 +183,8 @@ def level3(player):
                 if (player.get_fellowship >= 3) or (player.get_luck >= 5):
                     level6(player)
                 else: 
-                    level7(player)
-            elif choice2 == "Stop by a a coffee.":
+                    level9(player)
+            elif choice2 == "... am I going crazy?":
                 level7(player)
             else:
                 print("ERROR!")
@@ -253,6 +253,87 @@ def level6(player):
             read_file("./assets/story/6-4-bridge.txt")
             read_file("./assets/story/6-2-friendship.txt")
             end(3, "Humans and Machines")
+
+def level7(player):
+    """
+    Decisiontree level 7
+    """
+    read_file("./assets/story/7-0-crazy.txt")
+    choice = questionary.select(
+        "What do you want to do?\n\n",
+        choices=[
+            "Stop and stare at the screen to find a solution.",
+            "Keep pressing buttons. Something must work.",
+        ]).ask()
+    if choice == "Stop and stare at the screen to find a solution.":
+        level8(player)
+    elif choice == "Keep pressing buttons. Something must work.":
+        level9(player)
+
+def level8(player):
+    """
+    Decisiontree level 8
+    """
+    pass
+
+def level9(player):
+    """
+    Decisiontree level 9
+    """
+    read_file("./assets/story/9-0-decisions.txt")
+    choice = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "Pull the plug!",
+            "Press the Power Button.",
+        ]).ask()
+    if choice == "Pull the plug!":
+        if player.get_strength() >= 5:
+            read_file("./assets/story/9-1-pull-plug.txt")
+            end(5, "Pull the plug!")
+        else:
+            player.update_strength(-2)
+            read_file("./assets/story/9-2-loose.txt")
+            choice2 = questionary.select(
+                "What do you want to do?\n",
+                choices=[
+                "Beg for mercy.",
+                "RUN!",
+            ]).ask()
+            if choice2 == "Beg for mercy.":
+                level11(player)
+            elif: choice2 == "RUN!":
+                level10(player)
+    elif choice == "Press the Power Button.":
+        read_file("./assets/story/9-3-power.txt")
+        level12(player)
+        
+
+def level10(player):
+    pass
+
+def level11(player):
+    pass
+
+def level12(player):
+    """
+    Function to print slowly from text file to console.
+    """
+    player.update_strength(4)
+    read_file("./assets/story/12-0-still.txt")
+    choice = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "Get ready to attack.",
+            "Call the police.",
+        ]).ask()
+    if choice == "Get ready to attack.":
+        read_file("./assets/story/12-1-attack.txt")
+        level10(player)
+    elif choice == "Call the police.":
+        read_file("./assets/story/12-2-police.txt")
+        end(6, "1312")
+
 
 def slow_print(text):
     """
