@@ -77,12 +77,15 @@ This game can be played as a casual gamer, who prefer games that can be played i
 
 
 
-### Features Left to Implement
+### Possible Future Features
 
+#### Accessibility
+* It would be great to support text-to-speech functionality, so that players with visual impairments can enjoy the game.
+* It would be cool to customizable text size and contrast options, so that players with different visual preferences can comfortably play the game.
 
-
-### Accessibility
-
+#### Easier Replay
+* As a player that returns to the story multiple time, the slow text can be annoying. I would love to have a fast-forward option for previously read text, so that the player can explore alternative paths without re-reading entire sections, or getting them faster.
+* To find specific endings it would be great to save mid decision, so the player can explore paths later. 
 
 ## Testing
 
