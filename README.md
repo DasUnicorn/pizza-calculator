@@ -66,16 +66,24 @@ This game can be played as a casual gamer, who prefer games that can be played i
 
 ## Design
 
+### Story
+In creating the game, my aim was to craft a narrative that commences with a familiar scenario, gradually evolving into an increasingly intricate fantasy realm that rapidly intensifies in complexity and imagination.
 
 ### Flowchart
-[full Miro board](https://miro.com/app/board/uXjVNHT1bqI=/?share_link_id=87020844922)
+One of the most challenging aspects was maintaining a clear overview of the story and its various plotlines. so it was necessary to create an extensive flowchart to document the progression. Each element within these flowcharts is designated with a star, serving as a marker to indicate the implementation level of the corresponding code (for example objects marked with the star and the number 8 are implemented in the function "level8(player)").
+The preview of the board can be seen below. The [full Miro board](https://miro.com/app/board/uXjVNHT1bqI=/?share_link_id=87020844922) can be inspected online.
 
+![Miro Board](/assets/img/readme/miro.png)
 
-## Features 
+## Features
 
 ### Existing Features
 
+#### SpreadSheet
+The google sheet works as a database, designed to store the endings found by the user.
+Each ending gets written into the google sheet when found and reset to the default value when deleted.
 
+![Google Sheet](/assets/img/readme/sheet.png)
 
 ### Possible Future Features
 
