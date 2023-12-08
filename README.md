@@ -75,6 +75,11 @@ The preview of the board can be seen below. The [full Miro board](https://miro.c
 
 ![Miro Board](/assets/img/readme/miro.png)
 
+### Gameplay
+The game operates in the following manner: Users engage by making decisions, and in the background, a player class undergoes updates based on these choices. The player's character can experience growth or decline in stats, contingent on the decisions made. Additionally, the narrative takes divergent paths according to these choices. To achieve particular endings or storylines, players must have specific stats. Each player possesses an inventory where they can collect items, adding an extra layer of depth to the game.
+
+![Player Class])(/assets/img/readme/player.png)
+
 ## Features
 
 ### Existing Features
