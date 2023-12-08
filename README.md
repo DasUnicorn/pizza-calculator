@@ -42,6 +42,7 @@ Github
 
 
 ### Flowchart
+[full Miro board](https://miro.com/app/board/uXjVNHT1bqI=/?share_link_id=87020844922)
 
 
 ## Features 
@@ -102,3 +103,7 @@ To fork the repository:
 
 ## Credits
 * Markdown Table of Content by [Jon Schlinkert](https://github.com/jonschlinkert/markdown-toc)
+* https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=work%20from%20home
+* https://www.asciiart.eu/nature/sunset
+* https://questionary.readthedocs.io/en/stable/
+* https://www.youtube.com/watch?v=m1oOFS8X-4s
