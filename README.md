@@ -95,6 +95,9 @@ Each ending gets written into the google sheet when found and reset to the defau
 * As a player that returns to the story multiple time, the slow text can be annoying. I would love to have a fast-forward option for previously read text, so that the player can explore alternative paths without re-reading entire sections, or getting them faster.
 * To find specific endings it would be great to save mid decision, so the player can explore paths later. 
 
+#### Multiple Accounts
+* Currently the game is build with one sheet that saves all the progress for everyone playing this game. It would be great to implement a login, so each player has there own save.
+
 ## Testing
 
 
@@ -126,7 +129,13 @@ Each ending gets written into the google sheet when found and reset to the defau
 2. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 3. Type 'git clone' into the terminal, paste the link you copied in step 1 and press enter.
 
-More detailed steps are provided by github: [github guide to clone a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+To run the program directly in your terminal, you have to navigate into the folder you just cloned and runt the comman:
+
+```
+python3 run.py
+```
+
+Make sure to have python installed.
 
 
 #### How to Fork
@@ -136,6 +145,12 @@ To fork the repository:
 1. Log in (or sign up) to Github.
 2. Go to the repository for this project.
 3. Click the Fork button in the top right corner.
+4. Under "Owner," select the dropdown menu and click an owner for the forked repository.
+5. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
+6. Optionally, in the "Description" field, type a description of your fork.
+7. Optionally, select Copy the DEFAULT branch only.
+8. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.
+9. Click Create fork.
 
 
 ## Credits
