@@ -34,7 +34,9 @@ Github
 ## User Experience
 
 ### Target Audience
-
+The taget audience are people who enjoy interactive storytelling and decision-based games.
+Due to the content of the story I advice a minumum age of 14 years to play along.
+This game can be played as a casual gamer, who prefer games that can be played in shorter sessions and do not require a significant time commitment, or excessively to find all possible endings.
 
 ### User stories
 
