@@ -1,7 +1,8 @@
 # "Work from Home" - Story Telling Game
+"Work from home" is an interactive storytelling game where players take on the role of the protagonist in a dynamic narrative. The game can be played in the console or in a virtual console in the web-browser.
+The game is centered around your first remote office day, where every choice you make influences the storyline and leads to different outcomes. Try to find as many endings as possible.
 
-
-Check out the [live-site](https://murmuring-peak-78506-458d466df584.herokuapp.com/).
+Read below to learn how to deploy the website youself or check out the [live-site](https://murmuring-peak-78506-458d466df584.herokuapp.com/).
 
 ![Mock up](/assets/img/readme/mockup.png)
 
