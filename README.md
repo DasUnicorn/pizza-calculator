@@ -40,6 +40,29 @@ This game can be played as a casual gamer, who prefer games that can be played i
 
 ### User stories
 
+#### As a New Player:
+##### I want clear instructions on how to make choices
+* So that I can navigate the story easily, even if I'm not familiar with console-based games.
+
+##### I want a straightforward and intuitive interface
+* So that I can easily navigate the game without complex controls.
+
+#### For the game play:
+##### I want a compelling and immersive narrative
+* So that I can feel engaged and invested in the story.
+
+##### I want my choices to have significant consequences
+* So that my decisions feel impactful and meaningful.
+
+##### I want to see the immediate and long-term effects of my decisions
+* So that I can learn from my choices and adapt my strategy accordingly.
+
+##### I want to know how many possible endings there are 
+* So that I can strive to experience every outcome and complete the game fully.
+
+##### I want to know how many endings I have found
+* So that I can be happy about my achivement.
+
 
 ## Design
 
