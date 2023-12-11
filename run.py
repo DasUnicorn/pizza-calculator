@@ -327,7 +327,24 @@ def level10(player):
     pass
 
 def level11(player):
-    pass
+    read_file("./assets/story/11-0-mercy.txt")
+    choice = questionary.select(
+        "What do you answer?\n",
+        choices=[
+            "Yes! I've never hurt a soul!",
+            "No... To be honest: I suck at life.",
+        ]).ask()
+    if choice == "Yes! I've never hurt a soul!":
+        if player.get(get_fellowship) >= 3:
+            read_file("./assets/story/11-1-good.txt")
+            end(7, "Angel")
+        else:
+            level13(player)
+    elif choice == "No... To be honest: I suck at life.":
+        level13(player)
+    else:
+        print("Error in level 11!")
+
 
 def level12(player):
     """
