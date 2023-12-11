@@ -33,6 +33,17 @@ class Player:
     def get_inventory(self):
         return self.inventory
 
+    #--- Check inventory ---#
+    def is_in_inventory(obj):
+        """
+        Returns true if given object is in the players inventory.
+        Returns false if given objects is NOT in the players inventory.
+        """
+        if obj in self.inventory:
+            return True
+        else:
+            return False
+
     #--- Setter functions --#
     def set_stats(self, charisma, strength, luck, fellowship):
         self.charisma = charisma
