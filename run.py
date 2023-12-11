@@ -324,7 +324,31 @@ def level9(player):
         
 
 def level10(player):
-    pass
+    read_file("./assets/story/10-0-chase.txt")
+    choice = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "Search your pockets.",
+            "Make a fist.",
+        ]).ask()
+    if choice == "Search your pockets.":
+        level14(player)
+    elif choice == "Make a fist.":
+        read_file("./assets/story/10-1-really.txt")
+        choice2 = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "I should search my pockets.",
+            "Make two fists.",
+        ]).ask()
+        if choice2 == "I should search my pockets.":
+            level14(player)
+        elif choice2 == "Make two fists.":
+            level13(player)
+        else:
+            print("Error in Level 10!")
+    else:
+        print("Error in Level 10!")
 
 def level11(player):
     read_file("./assets/story/11-0-mercy.txt")
@@ -339,8 +363,10 @@ def level11(player):
             read_file("./assets/story/11-1-good.txt")
             end(7, "Angel")
         else:
+            read_file("./assets/story/11-1-bad.txt")
             level13(player)
     elif choice == "No... To be honest: I suck at life.":
+        read_file("./assets/story/11-1-bad.txt")
         level13(player)
     else:
         print("Error in level 11!")
@@ -366,6 +392,18 @@ def level12(player):
         end(6, "1312")
 
 def level13(player):
+    read_file("./assets/story/13-0-fist.txt")
+    if player.get_strength() >= 5:
+        read_file("./assets/story/13-1-strong.txt")
+        end(9, "Power Punch!")
+    elif player.get_luck() >= 10:
+        read_file("./assets/story/13-2-lucky-punch.txt")
+        end(10, "Lucky Punch!")
+    else:
+        read_file("./assets/story/13-3-agency.txt")
+        end(11, "Confidentiality Agreement")
+
+def level14(player):
     pass
 
 
