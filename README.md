@@ -66,8 +66,9 @@ This game can be played as a casual gamer, who prefer games that can be played i
 
 ## Design
 
-### Story
-In creating the game, my aim was to craft a narrative that commences with a familiar scenario, gradually evolving into an increasingly intricate fantasy realm that rapidly intensifies in complexity and imagination.
+### Story and Inspiration
+In creating the game, my aim was to craft a narrative that starts with a familiar scenario, gradually evolving into an increasingly intricate fantasy realm that rapidly intensifies in complexity and imagination.
+I took inspiration from [Choose Your Own Adventure](https://en.wikipedia.org/wiki/Choose_Your_Own_Adventure) Books where the palyer is *"making choices that determine the main character's actions and the plot's outcome"*, as well as the indie game ["Papers, Please"](https://en.wikipedia.org/wiki/Papers,_Please). *"The game has a scripted story mode with twenty possible endings depending on the player's actions"* 
 
 ### Flowchart
 One of the most challenging aspects was maintaining a clear overview of the story and its various plotlines. so it was necessary to create an extensive flowchart to document the progression. Each element within these flowcharts is designated with a star, serving as a marker to indicate the implementation level of the corresponding code (for example objects marked with the star and the number 8 are implemented in the function "level8(player)").
