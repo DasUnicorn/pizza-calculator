@@ -233,9 +233,9 @@ def level5(player):
         if player.get_strength() >=5 :
             level12()
         else:
-            level13()
+            level15()
     else:
-        level13()
+        level15()
 
 
 def level6(player):
@@ -404,8 +404,27 @@ def level13(player):
         end(11, "Confidentiality Agreement")
 
 def level14(player):
-    pass
+    if player.is_in_inventory("stick"):
+        read_file("./assets/story/14-0-stick.txt")
+        end(8, "Stick it")
+    else:
+        level13(player)
 
+def level15(player):
+    read_file("./assets/story/15-0-choke.txt")
+    choice = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "FIGHT BACK!",
+            "Nothing. It's over now.",
+        ]).ask()
+    if choice == "FIGHT BACK!":
+        read_file("./assets/story/15-1-fight.txt")
+        level14(player)
+    elif choice == "Nothing. It's over now.":
+        level8(player)
+    else:
+        print("Error in Level 15!")
 
 def slow_print(text):
     """
