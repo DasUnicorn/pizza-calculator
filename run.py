@@ -189,25 +189,7 @@ def level3(player):
             else:
                 print("ERROR!")
         elif choice == "Go for a walk to clean your mind.":
-            read_file("./assets/story/3-4-walk.txt")
-            player.update_inventory("stick")
-            choice2 = questionary.select(
-            "What do you want to do?\n",
-            choices=[
-                "Go back home.",
-                "Stop for a coffee.",
-            ]).ask()
-            if choice2 == "Go back home.":
-                level5(player)
-            elif choice2 == "Stop for a coffee.":
-                if player.get_luck() >= 5:
-                    read_file("./assets/story/4-2-coffee-luck.txt")
-                    end(2, "Coffee Luck")
-                else:
-                    read_file("./assets/story/4-1-coffee.txt")
-                    level5(player)
-            else:
-                print("ERROR!")
+            level17(player)
         else:
             print("ERROR!")
 
@@ -216,7 +198,24 @@ def level4(player):
     """
     Decisiontree level 4
     """
-    print("YEAH! LEVEL 4!") #--------------------------------------------------------------------#
+    read_file("./assets/story/4-0-mistake.txt")
+    choice = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "Investigate.",
+            "That's their problem.",
+        ]).ask()
+    if choice == "Investigate.":
+        if player.get_luck() >= 10:
+            read_file("./assets/story/4-3-bugfix.txt")
+            end(12,"bugfix")
+        else:
+            read_file("./assets/story/4-5-nofix.txt")
+            level16(player)
+    elif choice == "That's their problem.":
+        level16(player)
+    else:
+        print("Error in Level 4!")
 
 def level5(player):
     """
@@ -288,7 +287,33 @@ def level8(player):
     """
     Decisiontree level 8
     """
-    pass
+    read_file("./assets/story/8-0-virtual.txt")
+    choice = questionary.select(
+        "What do you want to do?\n\n",
+        choices=[
+            "Move.",
+            "Scream!",
+        ]).ask()
+    if choice == "Move.":
+        level18(player)
+    elif choice == "Scream!":
+        read_file("./assets/story/8-1-friends.txt")
+        player.update_fellowship(2)
+        choice2 = questionary.select(
+            "What do you want to do?\n",
+            choices=[
+                "Go your own way.",
+                "Follow them.",
+            ]).ask()
+        if choice2 == "Go your own way.":
+            read_file("./assets/story/8-2-own-way.txt")
+            level18(player)
+        elif choice2 == "Follow them.":
+            level19(player)
+        else:
+            print("Error in Level 8!")
+    else:
+        print("Error in Level 8!")
 
 def level9(player):
     """
@@ -425,6 +450,91 @@ def level15(player):
         level8(player)
     else:
         print("Error in Level 15!")
+
+def level16(player):
+    read_file("./assets/story/4-4-bugreport.txt")
+    choice = questionary.select(
+        "What is next?\n",
+        choices=[
+            "Go for a walk and think about the bug.",
+            "Next task.",
+        ]).ask()
+    if choice == "Go for a walk and think about the bug.":
+        level17(player)
+    elif choice == "Next task.":
+        read_file("./assets/story/16-1-task.txt")
+        choice2 = questionary.select(
+            "What do you want to do?\n",
+            choices=[
+                "Talk to the computer.",
+                "Check the cables.",
+            ]).ask()
+        if choice2 == "Talk to the computer.":
+            if player.get_charisma() >= 6:
+                level3(player)
+            else:
+                level8(player)
+        elif choice2 == "Check the cables.":
+            level8(player)
+        else:
+            print("Error in Level 16 - Choice 2")
+    else:
+        print("Error in Level 16!")
+
+def level17(player):
+    read_file("./assets/story/3-4-walk.txt")
+    player.update_inventory("stick")
+    choice2 = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "Go back home.",
+            "Stop for a coffee.",
+        ]).ask()
+    if choice2 == "Go back home.":
+        level5(player)
+    elif choice2 == "Stop for a coffee.":
+        if player.get_luck() >= 5:
+            read_file("./assets/story/4-2-coffee-luck.txt")
+            end(2, "Coffee Luck")
+        else:
+            read_file("./assets/story/4-1-coffee.txt")
+            level5(player)
+    else:
+        print("Error in Level 17!")
+
+def level18(player):
+    read_file("./assets/story/18-0-desktop.txt")
+    end(13, "Print Version")
+
+def level19(player):
+    read_file("./assets/story/19-0-town.txt")
+    choice = questionary.select(
+        "What do you want to do?\n",
+        choices=[
+            "Charisma.",
+            "Strength.",
+        ]).ask()
+    if choice == "Charisma.":
+        read_file("./assets/story/19-1-charisma.txt")
+        if player.get_charisma() >= 5:
+            read_file("./assets/story/19-2-win.txt")
+            end(15, "Win with friends!")
+        else:
+            level20(player)
+    elif choice == "Strength.":
+        read_file("./assets/story/19-2-strength.txt")
+        if player.get_strength() >= 5:
+            read_file("./assets/story/19-3-fight.txt")
+            end(16, "Win you freedom.")
+        else:
+            level20(player)
+    else:
+        print("Error in Level 19.")
+
+def level20(player):
+    read_file("./assets/story/20-0-loss.txt")
+    end(14, "You lost the game.")
+
 
 def slow_print(text):
     """
