@@ -112,6 +112,7 @@ Each ending gets written into the google sheet when found and reset to the defau
 
 
 #### PEP8
+https://pep8ci.herokuapp.com/
 
 
 ### Manual Testing
@@ -165,3 +166,5 @@ To fork the repository:
 * https://www.asciiart.eu/nature/sunset
 * https://questionary.readthedocs.io/en/stable/
 * https://www.youtube.com/watch?v=m1oOFS8X-4s
+* https://packagecontrol.io/packages/AutoPEP8
+* https://css-pattern.com/
