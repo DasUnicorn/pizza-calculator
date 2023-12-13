@@ -4,7 +4,7 @@ The game is centered around your first remote office day, where every choice you
 
 Read below to learn how to deploy the game youself or check out the [live-site](https://murmuring-peak-78506-458d466df584.herokuapp.com/).
 
-![Mock up](/assets/img/readme/mockup.png)
+![Mock up](/assets/img/readme/mock-up.png)
 
 --- 
 
