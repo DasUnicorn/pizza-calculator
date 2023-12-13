@@ -1,3 +1,5 @@
+from run import *
+
 def level2(player):
     """
     Decisiontree level 2
