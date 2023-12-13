@@ -49,10 +49,10 @@ def get_endings():
     found_endings = 0
     number_endings = 0
 
-    for data in data:
+    for item in data:
         number_endings += 1
 
-        if data[1] == "TRUE": 
+        if item[1] == "TRUE": 
             found_endings += 1
     
     return found_endings, number_endings
