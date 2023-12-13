@@ -23,15 +23,14 @@ endings = SHEET.worksheet('endings')
 
 # ----------------------------------------------------------- #
 
-
 def welcome():
     """
-    Printing the Welcome message at the beginning of each game on the screen
+    Printing the Welcome message and current score on the screen
     """
     print_picture("./assets/story/pc.txt")
     slow_print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.\n")
     slow_print("Your decisions affect the story and the end of your day.\n")
-    slow_print("Try to find as many ending as possible.\n")
+    slow_print("Try to find as many ending as possible, or just enjoy your run.\n")
     check_score()
     print("\n-------------------------------------\n")
 
@@ -44,7 +43,7 @@ def check_score():
 
 def get_endings():
     """
-    Getting the endings the user already found.
+    Getting the endings the user already found from the google sheet.
     """
     data = endings.get_all_values()
     found_endings = 0
