@@ -59,7 +59,7 @@ def get_endings():
 
 def delete():
     """
-    Delete the current score by setting all endings to false.
+    Delete the current score by setting all endings in the Google Sheet to false.
     """
     slow_print("\n...deleting your score...\n")
     data = endings.get_all_values()
@@ -74,7 +74,7 @@ def delete():
 
 def play(player):
     """
-    The start of the gameplay that divert in the storylines
+    The start of the gameplay that divert in different storylines.
     """
     print_picture("./assets/story/sun.txt")
     read_file("./assets/story/1-0-good-morning.txt")
@@ -107,7 +107,7 @@ def play(player):
 
 def slow_print(text):
     """
-    Function to print slowly from text file to console.
+    Function to print slowly from text to console.
     """
     for char in text:
         print(char, end = "", flush = True)
@@ -132,10 +132,11 @@ def read_file(story_file):
 
 def end(number, text):
     """
-    Displays the "end" ascii art, number and name of ending, saves the ending found.
+    Displays the "end" ascii art, number and name of ending, and saves the ending found.
+    The user gets asked if the want to restart or exit.
     """
     read_file("./assets/story/end.txt")
-    slow_print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".")
+    slow_print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".\n")
     save_ending(number)
     check_score()
     choice = questionary.select(
