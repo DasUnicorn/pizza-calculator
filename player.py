@@ -9,7 +9,7 @@ class Player:
         inventory    The inventory value of a player, an array.
     """
 
-    #--- constructor ---#
+    # --- constructor --- #
     def __init__(self, charisma, strength, luck, fellowship, inventory):
         self.charisma = charisma
         self.strength = strength
@@ -17,7 +17,7 @@ class Player:
         self.fellowship = fellowship
         self.inventory = inventory
 
-    #--- Getter functions ---#
+    # --- Getter functions --- #
     def get_charisma(self):
         return self.charisma
 
@@ -28,12 +28,12 @@ class Player:
         return self.luck
 
     def get_fellowship(self):
-        return self.fellowship 
+        return self.fellowship
 
     def get_inventory(self):
         return self.inventory
 
-    #--- Check inventory ---#
+    # --- Check inventory --- #
     def is_in_inventory(obj):
         """
         Returns true if given object is in the players inventory.
@@ -44,11 +44,11 @@ class Player:
         else:
             return False
 
-    #--- Setter functions --#
+    # --- Setter functions --- #
     def set_stats(self, charisma, strength, luck, fellowship):
         self.charisma = charisma
         self.strength = strength
-        self.luck = luck 
+        self.luck = luck
         self.fellowship = fellowship
 
     def set_charisma(self, value):
@@ -66,7 +66,7 @@ class Player:
     def set_inventory(self, value):
         self.inventory = value
 
-    #--- Update functions ---#
+    # --- Update functions --- #
     def update_charisma(self, value):
         self.charisma += value
 
