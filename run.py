@@ -23,23 +23,36 @@ endings = SHEET.worksheet('endings')
 
 # ----------------------------------------------------------- #
 
+
 def welcome():
     """
     Printing the Welcome message and current score on the screen
     """
     print_picture("./assets/story/pc.txt")
-    slow_print("Welcome to WORK FROM HOME a story telling game that takes you on a journey through a turbulent Home Office Day.\n")
+    slow_print(
+        "Welcome to WORK FROM HOME a story telling game" +
+        " that takes you on a journey through a turbulent Home Office Day.\n"
+    )
     slow_print("Your decisions affect the story and the end of your day.\n")
-    slow_print("Try to find as many ending as possible, or just enjoy your run.\n")
+    slow_print("Try to find as many ending as possible, " +
+               "or just enjoy your run.\n"
+               )
     check_score()
     print("\n-------------------------------------\n")
+
 
 def check_score():
     """
     Checks the number of endings found and the number of endings in total.
     """
     found_endings, number_endings = get_endings()
-    slow_print("You have found " + str(found_endings) + " of " + str(number_endings) + " endings so far.\n")
+    slow_print(
+        "You have found " +
+        str(found_endings) +
+        " of " +
+        str(number_endings) +
+        " endings so far.\n")
+
 
 def get_endings():
     """
@@ -52,14 +65,16 @@ def get_endings():
     for item in data:
         number_endings += 1
 
-        if item[1] == "TRUE": 
+        if item[1] == "TRUE":
             found_endings += 1
-    
+
     return found_endings, number_endings
+
 
 def delete():
     """
-    Delete the current score by setting all endings in the Google Sheet to false.
+    Delete the current score by setting all endings
+    in the Google Sheet to false.
     """
     slow_print("\n...deleting your score...\n")
     data = endings.get_all_values()
@@ -80,13 +95,13 @@ def play(player):
     read_file("./assets/story/1-0-good-morning.txt")
 
     choice = questionary.select(
-    "What do you want to do?\n",
-    choices=[
-        "Joining the optional morning stand up.",
-        "A pre-office workout.",
-        "Taking a nap.",
-        "Chatting with colleagues"
-    ]).ask()
+        "What do you want to do?\n",
+        choices=[
+            "Joining the optional morning stand up.",
+            "A pre-office workout.",
+            "Taking a nap.",
+            "Chatting with colleagues"
+        ]).ask()
 
     if choice == "Joining the optional morning stand up.":
         player.set_stats(5, 2, 2, 4)
@@ -105,13 +120,15 @@ def play(player):
 
     level2(player)
 
+
 def slow_print(text):
     """
     Function to print slowly from text to console.
     """
     for char in text:
-        print(char, end = "", flush = True)
+        print(char, end="", flush=True)
         time.sleep(0.03)
+
 
 def print_picture(txt_file):
     """
@@ -130,61 +147,72 @@ def read_file(story_file):
         file_text = file.read()
         slow_print(file_text + "\n")
 
+
 def end(number, text):
     """
-    Displays the "end" ascii art, number and name of ending, and saves the ending found.
+    Displays the "end" ascii art, number and name of ending,
+    and saves the ending found.
     The user gets asked if the want to restart or exit.
     """
     read_file("./assets/story/end.txt")
-    slow_print("Congratulations!\n You found Ending number " + str(number) + " titled " + text + ".\n")
+    slow_print("Congratulations!\n You found Ending number " +
+               str(number) + " titled " + text + ".\n")
     save_ending(number)
     check_score()
     choice = questionary.select(
-    "And now?",
-    choices=[
-        "Restart the game!",
-        "Enough for today. Exit program.",
-    ]).ask()
+        "And now?",
+        choices=[
+            "Restart the game!",
+            "Enough for today. Exit program.",
+        ]).ask()
 
     if choice == "Enough for today. Exit program.":
         exit()
 
+
 def save_ending(number):
     """
-    Saves the given entry to the google sheet
+    Saves the given entry to the google sheet.
     """
     slow_print("...saving your the ending...")
     endings.update_cell(number, 2, 'TRUE')
     slow_print("Ending has been saved.")
 
+
 def main():
     """
     Base function running the game.
     """
-    #One game run is one loop
+    # One game run is one loop
     while True:
         # Initial Player object is created
         player = Player(0, 0, 0, 0, [])
 
         welcome()
         choice = questionary.select(
-        "What do you want to do?",
-        choices=[
-            "Start the game",
-            "Delete the current score",
-            "End the game"
-        ]).ask()
-    
+            "What do you want to do?",
+            choices=[
+                "Start the game",
+                "Delete the current score",
+                "End the game"
+            ]).ask()
+
+        # Deleting
         if choice == "Delete the current score":
-            delete_check =questionary.confirm("Are you sure you want to delete your current score?", default=False).ask()
+            delete_check = questionary.confirm(
+                "Are you sure you want to delete your current score?",
+                default=False).ask()
             if delete_check:
                 delete()
             else:
                 slow_print("Your score has NOT been deleted.")
+        # Start the game
         elif choice == "Start the game":
             play(player)
+        # End game
         else:
-            break;
+            break
+
 
 # Making sure the script is run directly
 if __name__ == "__main__":

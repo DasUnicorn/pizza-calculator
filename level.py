@@ -1,16 +1,18 @@
 from run import *
 
+
 def level2(player):
     """
-    Decisiontree level 2
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 2.
     """
     read_file("./assets/story/2-0-call.txt")
     choice = questionary.select(
-    "What do you want to do?\n",
-    choices=[
-        "I am focused now, they can send me an e-mail.",
-        "Take the call.",
-    ]).ask()
+        "What do you want to do?\n",
+        choices=[
+            "I am focused now, they can send me an e-mail.",
+            "Take the call.",
+        ]).ask()
 
     if choice == "I am focused now, they can send me an e-mail.":
         read_file("./assets/story/2-2-lunch.txt")
@@ -18,14 +20,16 @@ def level2(player):
             "What do you want to do?\n",
             choices=[
                 "Grab a Snack and go for a walk.",
-                "Cook a meal while watching learning videos about presentation skills.",
+                "Cook a meal while watching learning videos" +
+                " about presentation skills.",
             ]).ask()
         if choice2 == "Grab a Snack and go for a walk.":
             player.update_strength(2)
-        elif choice2 == "Cook a meal while watching learning videos about presentation skills.":
+        elif choice2 == ("Cook a meal while watching learning videos" +
+                         " about presentation skills."):
             player.update_charisma(2)
         else:
-            print("ERROR!")
+            print("Error in Level 2, option 1.")
 
         level4(player)
 
@@ -42,16 +46,17 @@ def level2(player):
         elif choice2 == "Decline and focus on your own work.":
             player.update_fellowship(-2)
         else:
-            print("ERROR!")
+            print("Error in Level 2, option 2.")
 
         level3(player)
     else:
-        print("ERROR!")
+        print("Error in Level 2!")
 
 
 def level3(player):
     """
-    Decisiontree level 3
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 3.
     """
     read_file("./assets/story/3-0-problem.txt")
     if player.get_fellowship() >= 3:
@@ -69,29 +74,30 @@ def level3(player):
         if choice == "Start talking to the computer.":
             read_file("./assets/story/3-3-talk.txt")
             choice2 = questionary.select(
-            "Wait ... \n",
-            choices=[
-                "... is this morse-code?",
-                "... am I going crazy?",
-            ]).ask()
+                "Wait ... \n",
+                choices=[
+                    "... is this morse-code?",
+                    "... am I going crazy?",
+                ]).ask()
             if choice2 == "... is this morse-code?":
                 if (player.get_fellowship >= 3) or (player.get_luck >= 5):
                     level6(player)
-                else: 
+                else:
                     level9(player)
             elif choice2 == "... am I going crazy?":
                 level7(player)
             else:
-                print("ERROR!")
+                print("Error in Level 3, option 1!")
         elif choice == "Go for a walk to clean your mind.":
             level17(player)
         else:
-            print("ERROR!")
+            print("Error in Level3!")
 
 
 def level4(player):
     """
-    Decisiontree level 4
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 4.
     """
     read_file("./assets/story/4-0-mistake.txt")
     choice = questionary.select(
@@ -103,7 +109,7 @@ def level4(player):
     if choice == "Investigate.":
         if player.get_luck() >= 10:
             read_file("./assets/story/4-3-bugfix.txt")
-            end(12,"bugfix")
+            end(12, "bugfix")
         else:
             read_file("./assets/story/4-5-nofix.txt")
             level16(player)
@@ -112,59 +118,70 @@ def level4(player):
     else:
         print("Error in Level 4!")
 
+
 def level5(player):
     """
-    Decisiontree level 5
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 5.
     """
     read_file("./assets/story/5-0-home.txt")
     choice = questionary.select(
-    "What do you want to do?\n",
-    choices=[
-        "Hide and prepaire for an attack.",
-        "Storm and attack!",
-    ]).ask()
+        "What do you want to do?\n",
+        choices=[
+            "Hide and prepaire for an attack.",
+            "Storm and attack!",
+        ]).ask()
     if choice == "Hide and prepaire for an attack.":
-        if player.get_strength() >=5 :
+        if player.get_strength() >= 5:
             level12()
         else:
             level15()
-    else:
+    elif choice == "Storm and attack!":
         level15()
+    else:
+        print("Error in Level 5!")
 
 
 def level6(player):
     """
-    Decisiontree level 6
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 6.
     """
     read_file("./assets/story/6-0-code.txt")
     choice = questionary.select(
-    "This is the moment to ...\n",
-    choices=[
-        "... take advantage of the situation.",
-        "... become friends with the machine.",
-    ]).ask()
+        "This is the moment to ...\n",
+        choices=[
+            "... take advantage of the situation.",
+            "... become friends with the machine.",
+        ]).ask()
     if choice == "... become friends with the machine.":
         read_file("./assets/story/6-2-friendship.txt")
         end(3, "Humans and Machines")
     elif choices == "... take advantage of the situation.":
         read_file("./assets/story/6-1-deal.txt")
         choice2 = questionary.select(
-        "What do you want to do?\n\n",
-        choices=[
-            "Make the deal.",
-            "Decline offer and talk further.",
-        ]).ask()
+            "What do you want to do?\n\n",
+            choices=[
+                "Make the deal.",
+                "Decline offer and talk further.",
+            ]).ask()
         if choice2 == "Make the deal.":
             read_file("./assets/story/6-3-make-deal.txt")
             end(4, "quid pro quo")
-        else:
+        elif choice2 == "Decline offer and talk further.":
             read_file("./assets/story/6-4-bridge.txt")
             read_file("./assets/story/6-2-friendship.txt")
             end(3, "Humans and Machines")
+        else:
+            print("Error in Level 6, option 2.")
+    else:
+        print("Error in Level 6!")
+
 
 def level7(player):
     """
-    Decisiontree level 7
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 7.
     """
     read_file("./assets/story/7-0-crazy.txt")
     choice = questionary.select(
@@ -177,10 +194,14 @@ def level7(player):
         level8(player)
     elif choice == "Keep pressing buttons. Something must work.":
         level9(player)
+    else:
+        print("Error in Level 7!")
+
 
 def level8(player):
     """
-    Decisiontree level 8
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 8.
     """
     read_file("./assets/story/8-0-virtual.txt")
     choice = questionary.select(
@@ -206,13 +227,15 @@ def level8(player):
         elif choice2 == "Follow them.":
             level19(player)
         else:
-            print("Error in Level 8!")
+            print("Error in Level 8, option 2!")
     else:
         print("Error in Level 8!")
 
+
 def level9(player):
     """
-    Decisiontree level 9
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 9.
     """
     read_file("./assets/story/9-0-decisions.txt")
     choice = questionary.select(
@@ -231,19 +254,27 @@ def level9(player):
             choice2 = questionary.select(
                 "What do you want to do?\n",
                 choices=[
-                "Beg for mercy.",
-                "RUN!",
-            ]).ask()
+                    "Beg for mercy.",
+                    "RUN!",
+                ]).ask()
             if choice2 == "Beg for mercy.":
                 level11(player)
             elif choice2 == "RUN!":
                 level10(player)
+            else:
+                print("Error in Level 9, option 1!")
     elif choice == "Press the Power Button.":
         read_file("./assets/story/9-3-power.txt")
         level12(player)
-        
+    else:
+        print("Error in Level 9!")
+
 
 def level10(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 10.
+    """
     read_file("./assets/story/10-0-chase.txt")
     choice = questionary.select(
         "What do you want to do?\n",
@@ -256,21 +287,26 @@ def level10(player):
     elif choice == "Make a fist.":
         read_file("./assets/story/10-1-really.txt")
         choice2 = questionary.select(
-        "What do you want to do?\n",
-        choices=[
-            "I should search my pockets.",
-            "Make two fists.",
-        ]).ask()
+            "What do you want to do?\n",
+            choices=[
+                "I should search my pockets.",
+                "Make two fists.",
+            ]).ask()
         if choice2 == "I should search my pockets.":
             level14(player)
         elif choice2 == "Make two fists.":
             level13(player)
         else:
-            print("Error in Level 10!")
+            print("Error in Level 10 - option 2!")
     else:
         print("Error in Level 10!")
 
+
 def level11(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 11.
+    """
     read_file("./assets/story/11-0-mercy.txt")
     choice = questionary.select(
         "What do you answer?\n",
@@ -294,7 +330,8 @@ def level11(player):
 
 def level12(player):
     """
-    Function to print slowly from text file to console.
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 12.
     """
     player.update_strength(4)
     read_file("./assets/story/12-0-still.txt")
@@ -310,8 +347,15 @@ def level12(player):
     elif choice == "Call the police.":
         read_file("./assets/story/12-2-police.txt")
         end(6, "1312")
+    else:
+        print("Error in Level 12")
+
 
 def level13(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 13.
+    """
     read_file("./assets/story/13-0-fist.txt")
     if player.get_strength() >= 5:
         read_file("./assets/story/13-1-strong.txt")
@@ -323,14 +367,24 @@ def level13(player):
         read_file("./assets/story/13-3-agency.txt")
         end(11, "Confidentiality Agreement")
 
+
 def level14(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 14.
+    """
     if player.is_in_inventory("stick"):
         read_file("./assets/story/14-0-stick.txt")
         end(8, "Stick it")
     else:
         level13(player)
 
+
 def level15(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 15.
+    """
     read_file("./assets/story/15-0-choke.txt")
     choice = questionary.select(
         "What do you want to do?\n",
@@ -346,7 +400,12 @@ def level15(player):
     else:
         print("Error in Level 15!")
 
+
 def level16(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 16.
+    """
     read_file("./assets/story/4-4-bugreport.txt")
     choice = questionary.select(
         "What is next?\n",
@@ -376,7 +435,12 @@ def level16(player):
     else:
         print("Error in Level 16!")
 
+
 def level17(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 17.
+    """
     read_file("./assets/story/3-4-walk.txt")
     player.update_inventory("stick")
     choice2 = questionary.select(
@@ -397,11 +461,20 @@ def level17(player):
     else:
         print("Error in Level 17!")
 
+
 def level18(player):
+    """
+    The Text that is displayed in Level 18.
+    """
     read_file("./assets/story/18-0-desktop.txt")
     end(13, "Print Version")
 
+
 def level19(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 19.
+    """
     read_file("./assets/story/19-0-town.txt")
     choice = questionary.select(
         "What do you want to do?\n",
@@ -426,6 +499,10 @@ def level19(player):
     else:
         print("Error in Level 19.")
 
+
 def level20(player):
+    """
+    The Text that is displayed in Level 20.
+    """
     read_file("./assets/story/20-0-loss.txt")
     end(14, "You lost the game.")
