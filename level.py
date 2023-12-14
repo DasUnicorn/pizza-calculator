@@ -10,8 +10,8 @@ def level2(player):
     choice = questionary.select(
         "What do you want to do?\n",
         choices=[
-            "I am focused now, they can send me an e-mail.",
             "Take the call.",
+            "I am focused now, they can send me an e-mail.",
         ]).ask()
 
     if choice == "I am focused now, they can send me an e-mail.":
