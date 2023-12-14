@@ -30,15 +30,16 @@ def welcome():
     """
     print_picture("./assets/story/pc.txt")
     slow_print(
-        "Welcome to WORK FROM HOME a story telling game" +
-        " that takes you on a journey through a turbulent Home Office Day.\n"
+        "Welcome to WORK FROM HOME\n- a story telling game" +
+        " that takes you on a journey through\na turbulent Home Office Day.\n"
     )
     slow_print("Your decisions affect the story and the end of your day.\n")
     slow_print("Try to find as many ending as possible, " +
                "or just enjoy your run.\n"
                )
+    print("\n------------------------------------------\n")
     check_score()
-    print("\n-------------------------------------\n")
+    print("\n------------------------------------------\n")
 
 
 def check_score():
@@ -86,6 +87,44 @@ def delete():
 
     slow_print("Your score has been deleted.\n")
 
+def ask_for_name(player):
+    """
+    Asking the user for their name and save it in the given
+    player object.
+    """
+    slow_print("Before we start, please tell me your name.\n")
+    while True:
+        slow_print("")
+        slow_print("Your username needs to start with a capital letter,\n" +
+            "can't be longer than 10 characters and can only contains\n" +
+            "letters.\n")
+        name = input("Please enter your name: ")
+        if validate_name(name):
+            player.set_name(name)
+            slow_print("Welcome " + str(name) + "!\n" + 
+                "Let's start your journey.\n")
+            print("\n------------------------------------------\n")
+            break
+
+def validate_name(name):
+    """
+    Validate a given name string.
+    Returns True if the given name is short than 10 characters,
+    start with a capital letter and only contains letters.
+    Else False is returned.
+    """
+    try:
+        if len(name) > 10:
+            raise ValueError("Your name can't be longer than 10 charaters")
+        if not name[0].isupper():
+            raise ValueError("Your name needs to start with a capital letter")
+        if not name.isalpha():
+            raise ValueError("Your name can only contain letters")
+    except ValueError as e:
+        print(f"Invalid Data: {e}, please try again.\n")
+        return False
+
+    return True
 
 def play(player):
     """
@@ -186,7 +225,7 @@ def main():
     # One game run is one loop
     while True:
         # Initial Player object is created
-        player = Player(0, 0, 0, 0, [])
+        player = Player("", 0, 0, 0, 0, [])
 
         welcome()
         choice = questionary.select(
@@ -208,6 +247,7 @@ def main():
                 slow_print("Your score has NOT been deleted.")
         # Start the game
         elif choice == "Start the game":
+            ask_for_name(player)
             play(player)
         # End game
         else:

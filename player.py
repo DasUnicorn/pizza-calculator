@@ -2,6 +2,7 @@ class Player:
     """A Player in the story telling Game "Work from home".
 
     Attributes:
+        name         The name of the player, a string.
         charisma     The charisma value of a player, an integer.
         strength     The strength value of a player, an integer.
         luck         The luck value of a player, an integer.
@@ -10,7 +11,8 @@ class Player:
     """
 
     # --- constructor --- #
-    def __init__(self, charisma, strength, luck, fellowship, inventory):
+    def __init__(self, name, charisma, strength, luck, fellowship, inventory):
+        self.name = name
         self.charisma = charisma
         self.strength = strength
         self.luck = luck
@@ -18,6 +20,9 @@ class Player:
         self.inventory = inventory
 
     # --- Getter functions --- #
+    def get_name(self):
+        return self.name
+
     def get_charisma(self):
         return self.charisma
 
@@ -45,11 +50,15 @@ class Player:
             return False
 
     # --- Setter functions --- #
-    def set_stats(self, charisma, strength, luck, fellowship):
+    def set_stats(self, name, charisma, strength, luck, fellowship):
+        self.get_name = name
         self.charisma = charisma
         self.strength = strength
         self.luck = luck
         self.fellowship = fellowship
+
+    def set_name(self, value):
+        self.name = value
 
     def set_charisma(self, value):
         self.charisma = value
