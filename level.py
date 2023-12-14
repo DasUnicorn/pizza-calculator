@@ -25,6 +25,7 @@ def level2(player):
             ]).ask()
         if choice2 == "Grab a Snack and go for a walk.":
             player.update_strength(2)
+            read_file("./assets/story/2-5-snack.txt")
         elif choice2 == ("Cook a meal while watching learning videos" +
                          " about presentation skills."):
             player.update_charisma(2)
