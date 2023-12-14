@@ -494,24 +494,25 @@ def level20(player):
     read_file("./assets/story/20-0-loss.txt")
     end(14, "You lost the game.")
 
+
 def level21(player):
     """
     The logic and decision tree that displays the given text
     and manges the input option of Level 21.
     """
     read_file("./assets/story/3-3-talk.txt")
-            choice2 = questionary.select(
-                "Wait ... \n",
-                choices=[
-                    "... is this morse-code?",
-                    "... am I going crazy?",
-                ]).ask()
-            if choice2 == "... is this morse-code?":
-                if (player.get_fellowship() >= 3) or (player.get_luck() >= 5):
-                    level6(player)
-                else:
-                    level9(player)
-            elif choice2 == "... am I going crazy?":
-                level7(player)
+      choice2 = questionary.select(
+           "Wait ... \n",
+            choices=[
+                "... is this morse-code?",
+                "... am I going crazy?",
+            ]).ask()
+       if choice2 == "... is this morse-code?":
+            if (player.get_fellowship() >= 3) or (player.get_luck() >= 5):
+                level6(player)
             else:
-                print("Error in Level 3, option 1!")
+                level9(player)
+        elif choice2 == "... am I going crazy?":
+            level7(player)
+        else:
+            print("Error in Level 3, option 1!")

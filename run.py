@@ -97,7 +97,7 @@ def ask_for_name(player):
     while True:
         slow_print("")
         slow_print("Your name needs to start with a capital letter,\n" +
-                   "can't be longer than 10 characters and can only contain" +
+                   "can't be longer than 10 characters and can only contain " +
                    "letters.\n")
         name = input("Please enter your name: ")
         if validate_name(name):
