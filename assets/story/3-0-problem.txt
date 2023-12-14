@@ -1,1 +1,5 @@
-Suddenly the familiar hum of the computer transformed into an unsettling whir, and a series of error messages flashed across the screen. You attempted to troubleshoot the issue, navigating the labyrinth of error codes and diagnostic tools, but nothing seems to work. After frustrations grow in you, you decide to call a colluege for help.
+Suddenly, the familiar hum of the computer transformed into an unsettling whir,
+and a series of error messages flashed across the screen. You attempted to
+troubleshoot the issue, navigating the labyrinth of error codes and diagnostic
+tools, but nothing seems to work. After frustrations grow on you,
+you decide to call a colleague for help.

@@ -1,8 +1,16 @@
-In a moment of sheer exhaustion, you throw your head into your hands, overwhelmed by the errors popping up in front of you.
+In a moment of sheer exhaustion, you throw your head into your hands,
+overwhelmed by the errors popping up in front of you.
 The whirring and buzzing sounds gradually fade, replaced by a complete silence.
 
-Slowly,you lift your head to gaze at the screen, expecting to see the final error message. However, the error messages has ceased. In its place, a newfound order begins to emerge.
+Slowly, you lift your head to gaze at the screen, expecting to see the final
+error message. However, the error messages have ceased. In its place,
+a newfound order begins to emerge.
 
-As you watch in bewilderment, the program that had been the source of your frustrations begins to exhibit a strange autonomy. Lines of code scroll across the screen, executing tasks and commands without any input from you. It's as if the program has taken matters into its own virtual hands. 
-As I sit back, still processing the unexpected transformation, a mix of panic and axiety shiffers over you.
-What ever this program is doing can't be right. Is it... yes, it's deleting files, programs and data.
+As you watch in bewilderment, the program that had been the source of your
+frustrations begins to exhibit a strange autonomy. Lines of code scroll across
+the screen, executing tasks and commands without any input from you. It's as if
+the program has taken matters into its own virtual hands. 
+As I sit back, still processing the unexpected transformation, a mix of panic
+and anxiety suffer over you.
+What ever this program is doing can't be right. Is it... yes, it's deleting
+files, programs and data.

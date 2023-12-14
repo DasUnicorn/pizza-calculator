@@ -1,3 +1,5 @@
 It's best to just open a bug report.
 Collaborative problem-solving is often the most effective path forward.
-You navigate to the management system, where you document the details of the bug, outlining the observed behavior, the steps taken to reproduce the issue, and any potential insights gained during my troubleshooting efforts.
+You navigate to the management system, where you document the details of the
+bug, outlining the observed behavior, the steps taken to reproduce the issue,
+and any potential insights gained during my troubleshooting efforts.

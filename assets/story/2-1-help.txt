@@ -1,2 +1,5 @@
 Your boss wants you to help a colleague who struggles with a task.
-You would like to assist, but there was the pressing demand of your own ongoing project, a meticulous endeavor that required completion by the end of the day. If you choose to help, your boss and colleague will be really pleased, but you might not finish your own work.
+You would like to assist, but there was the pressing demand of your own
+ongoing project, a meticulous endeavor that required completion by
+the end of the day. If you choose to help, your boss and colleague will be
+really pleased, but you might not finish your own work.

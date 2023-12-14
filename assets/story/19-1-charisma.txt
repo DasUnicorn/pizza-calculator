@@ -1,4 +1,8 @@
-The green-haired pixel character steps forward, presenting you with a list of written-down words.
-Each word represents an object or concept, and the challenge is to explain these to other members of your team.
-"Maybe your world doesn't have it," the green-haired character suggests, allowing you the option to skip any objects that might be unfamiliar.
-One by one, you articulate vivid and descriptive explanations for the objects on the list. 
+The green-haired pixel character steps forward, presenting you with a list of
+written-down words.
+Each word represents an object or concept, and the challenge is to explain
+these to other members of your team.
+"Maybe your world doesn't have it," the green-haired character suggests,
+allowing you the option to skip any objects that might be unfamiliar.
+One by one, you articulate vivid and descriptive explanations for
+the objects on the list. 

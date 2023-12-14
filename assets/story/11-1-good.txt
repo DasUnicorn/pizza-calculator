@@ -1,6 +1,9 @@
 You respond, "Yes, I strive to be a good human."
 For a moment there is silence.
-"You have helped your colleagues, people like you for your helpfulness." the computer states, its voice devoid of the earlier hostility. "You are right. I will spare you. You are safe now," the computer declares.
+"You have helped your colleagues, people like you for your helpfulness."
+the computer starts, its voice devoid of the earlier hostility.
+"You are right. I will spare you. You are safe now," the computer declares.
 A profound sense of relief washes over you.
-In the aftermath of the confrontation, you stand in the room, still tinged with the echoes of the surreal clash.
+In the aftermath of the confrontation, you stand in the room, still 
+tinged with the echoes of the surreal clash.
 You do not care what happens now. You survived this day.

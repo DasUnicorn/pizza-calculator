@@ -1,1 +1,2 @@
-Despite your best efforts, the elusive bug continues to evade your attempts to be found.
+Despite your best efforts, the elusive bug continues to evade your attempts
+to be found.
