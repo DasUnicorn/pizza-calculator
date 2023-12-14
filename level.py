@@ -28,6 +28,7 @@ def level2(player):
         elif choice2 == ("Cook a meal while watching learning videos" +
                          " about presentation skills."):
             player.update_charisma(2)
+            read_file("./assets/story/2-4-videos.txt")
         else:
             print("Error in Level 2, option 1.")
 
