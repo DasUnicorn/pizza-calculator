@@ -447,8 +447,8 @@ def level17(player):
     choice2 = questionary.select(
         "What do you want to do?\n",
         choices=[
-            "Go back home.",
             "Stop for a coffee.",
+            "Go back home.",
         ]).ask()
     if choice2 == "Go back home.":
         level5(player)
