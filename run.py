@@ -95,7 +95,7 @@ def ask_for_name(player):
     slow_print("Before we start, please tell me your name.\n")
     while True:
         slow_print("")
-        slow_print("Your username needs to start with a capital letter,\n" +
+        slow_print("Your name needs to start with a capital letter,\n" +
             "can't be longer than 10 characters and can only contains\n" +
             "letters.\n")
         name = input("Please enter your name: ")
