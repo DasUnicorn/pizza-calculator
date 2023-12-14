@@ -138,8 +138,8 @@ def level6(player):
     choice = questionary.select(
         "This is the moment to ...\n",
         choices=[
-            "... take advantage of the situation.",
             "... become friends with the machine.",
+            "... take advantage of the situation.",
         ]).ask()
     if choice == "... become friends with the machine.":
         read_file("./assets/story/6-2-friendship.txt")
@@ -149,8 +149,8 @@ def level6(player):
         choice2 = questionary.select(
             "What do you want to do?\n\n",
             choices=[
-                "Make the deal.",
                 "Decline offer and talk further.",
+                "Make the deal.",
             ]).ask()
         if choice2 == "Make the deal.":
             read_file("./assets/story/6-3-make-deal.txt")
