@@ -513,6 +513,7 @@ def level21(player):
         if (player.get_fellowship() >= 3) or (player.get_luck() >= 5):
             level6(player)
         else:
+            read_file("./assets/story/3-5-noway.txt")
             level9(player)
     elif choice2 == "... am I going crazy?":
         level7(player)
