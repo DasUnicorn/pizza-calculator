@@ -82,7 +82,7 @@ def level3(player):
                     "... am I going crazy?",
                 ]).ask()
             if choice2 == "... is this morse-code?":
-                if (player.get_fellowship >= 3) or (player.get_luck >= 5):
+                if (player.get_fellowship() >= 3) or (player.get_luck() >= 5):
                     level6(player)
                 else:
                     level9(player)
