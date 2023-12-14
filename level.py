@@ -163,7 +163,7 @@ def level6(player):
         read_file("./assets/story/6-1-deal.txt")
         choice2 = questionary.select(
             "What do you want to do?\n\n",
-            choice2=[
+            choices=[
                 "Make the deal.",
                 "Decline offer and talk further.",
             ]).ask()
