@@ -181,6 +181,7 @@ def level7(player):
     if choice == "Stop and stare at the screen to find a solution.":
         level8(player)
     elif choice == "Keep pressing buttons. Something must work.":
+        read_file("./assets/story/7-1-buttons.txt")
         level9(player)
     else:
         print("Error in Level 7!")
