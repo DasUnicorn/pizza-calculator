@@ -50,8 +50,7 @@ class Player:
             return False
 
     # --- Setter functions --- #
-    def set_stats(self, name, charisma, strength, luck, fellowship):
-        self.get_name = name
+    def set_stats(self, charisma, strength, luck, fellowship):
         self.charisma = charisma
         self.strength = strength
         self.luck = luck

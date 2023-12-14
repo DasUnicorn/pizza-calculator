@@ -134,7 +134,7 @@ def play(player):
     read_file("./assets/story/1-0-good-morning.txt")
 
     choice = questionary.select(
-        "What do you want to do?\n",
+        "What do you want to do?",
         choices=[
             "Joining the optional morning stand up.",
             "A pre-office workout.",
