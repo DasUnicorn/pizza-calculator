@@ -87,6 +87,7 @@ def delete():
 
     slow_print("Your score has been deleted.\n")
 
+
 def ask_for_name(player):
     """
     Asking the user for their name and save it in the given
@@ -96,15 +97,16 @@ def ask_for_name(player):
     while True:
         slow_print("")
         slow_print("Your name needs to start with a capital letter,\n" +
-            "can't be longer than 10 characters and can only contains\n" +
-            "letters.\n")
+                   "can't be longer than 10 characters and can only contain" +
+                   "letters.\n")
         name = input("Please enter your name: ")
         if validate_name(name):
             player.set_name(name)
-            slow_print("Welcome " + str(name) + "!\n" + 
-                "Let's start your journey.\n")
+            slow_print("Welcome " + str(name) + "!\n" +
+                       "Let's start your journey.\n")
             print("\n------------------------------------------\n")
             break
+
 
 def validate_name(name):
     """
@@ -125,6 +127,7 @@ def validate_name(name):
         return False
 
     return True
+
 
 def play(player):
     """
