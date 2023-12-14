@@ -74,22 +74,7 @@ def level3(player):
                 "Go for a walk to clean your mind.",
             ]).ask()
         if choice == "Start talking to the computer.":
-            read_file("./assets/story/3-3-talk.txt")
-            choice2 = questionary.select(
-                "Wait ... \n",
-                choices=[
-                    "... is this morse-code?",
-                    "... am I going crazy?",
-                ]).ask()
-            if choice2 == "... is this morse-code?":
-                if (player.get_fellowship() >= 3) or (player.get_luck() >= 5):
-                    level6(player)
-                else:
-                    level9(player)
-            elif choice2 == "... am I going crazy?":
-                level7(player)
-            else:
-                print("Error in Level 3, option 1!")
+            level21(player)
         elif choice == "Go for a walk to clean your mind.":
             level17(player)
         else:
@@ -422,12 +407,12 @@ def level16(player):
         choice2 = questionary.select(
             "What do you want to do?\n",
             choices=[
-                "Talk to the computer.",
+                "Throw your face into your hands and start mumbling.",
                 "Check the cables.",
             ]).ask()
-        if choice2 == "Talk to the computer.":
+        if choice2 == "Throw your face into your hands and start mumbling.":
             if player.get_charisma() >= 6:
-                level3(player)
+                level21(player)
             else:
                 level8(player)
         elif choice2 == "Check the cables.":
@@ -508,3 +493,25 @@ def level20(player):
     """
     read_file("./assets/story/20-0-loss.txt")
     end(14, "You lost the game.")
+
+def level21(player):
+    """
+    The logic and decision tree that displays the given text
+    and manges the input option of Level 21.
+    """
+    read_file("./assets/story/3-3-talk.txt")
+            choice2 = questionary.select(
+                "Wait ... \n",
+                choices=[
+                    "... is this morse-code?",
+                    "... am I going crazy?",
+                ]).ask()
+            if choice2 == "... is this morse-code?":
+                if (player.get_fellowship() >= 3) or (player.get_luck() >= 5):
+                    level6(player)
+                else:
+                    level9(player)
+            elif choice2 == "... am I going crazy?":
+                level7(player)
+            else:
+                print("Error in Level 3, option 1!")
