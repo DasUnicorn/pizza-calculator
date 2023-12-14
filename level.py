@@ -152,7 +152,7 @@ def level6(player):
     read_file("./assets/story/6-0-code.txt")
     choice = questionary.select(
         "This is the moment to ...\n",
-        choice=[
+        choices=[
             "... take advantage of the situation.",
             "... become friends with the machine.",
         ]).ask()
