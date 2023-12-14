@@ -43,6 +43,7 @@ def level2(player):
             ]).ask()
         if choice2 == "Help the colleague.":
             player.update_fellowship(2)
+            read_file("./assets/story/2-3-help.txt")
         elif choice2 == "Decline and focus on your own work.":
             player.update_fellowship(-2)
         else:
