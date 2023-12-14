@@ -123,6 +123,23 @@ https://pep8ci.herokuapp.com/
 
 ### Fixed Bugs
 
+```
+    def set_stats(self, name, charisma, strength, luck, fellowship):
+        self.get_name = name
+        self.charisma = charisma
+        self.strength = strength
+        self.luck = luck
+        self.fellowship = fellowship
+```
+
+```
+    def set_stats(self, charisma, strength, luck, fellowship):
+        self.charisma = charisma
+        self.strength = strength
+        self.luck = luck
+        self.fellowship = fellowship
+
+```
 
 ## Deployment
 
