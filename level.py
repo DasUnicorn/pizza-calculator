@@ -38,8 +38,8 @@ def level2(player):
         choice2 = questionary.select(
             "What do you want to do?\n",
             choices=[
-                "Help the colleague.",
                 "Decline and focus on your own work.",
+                "Help the colleague.",
             ]).ask()
         if choice2 == "Help the colleague.":
             player.update_fellowship(2)
