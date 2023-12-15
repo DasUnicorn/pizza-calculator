@@ -121,11 +121,11 @@ def level5(player):
         ]).ask()
     if choice == "Hide and prepaire for an attack.":
         if player.get_strength() >= 5:
-            level12()
+            level12(player)
         else:
-            level15()
+            level15(player)
     elif choice == "Storm and attack!":
-        level15()
+        level15(player)
     else:
         print("Error in Level 5!")
 
