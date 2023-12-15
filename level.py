@@ -304,7 +304,7 @@ def level11(player):
             "No... To be honest: I suck at life.",
         ]).ask()
     if choice == "Yes! I've never hurt a soul!":
-        if player.get(get_fellowship) >= 3:
+        if player.get(get_charisma) >= 3:
             read_file("./assets/story/11-1-good.txt")
             end(7, "Angel")
         else:
