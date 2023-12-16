@@ -169,7 +169,7 @@ All python code has been validated with the [pep8ci](https://pep8ci.herokuapp.co
 There are no errors.
 
 ![run.py](/assets/img/readme/run.png)
-![player.py](/assets/img/readme/player.png)
+![player.py](/assets/img/readme/player-class.png)
 ![levels.py](/assets/img/readme/levels.png)
 
 ### Manual Testing
