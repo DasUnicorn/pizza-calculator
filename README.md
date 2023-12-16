@@ -380,6 +380,7 @@ To fork the repository:
 3. Name your App.
 4. Add Node JS and Python packages to app setting.
 5. Connect github repository to Heroku app
+6. Add creds.json content for a given google sheet
 6. Deploy from "deploy", or choose an automatic deploy option.
 
 
