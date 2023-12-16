@@ -81,9 +81,49 @@ The game operates in the following manner: Users engage by making decisions, and
 
 ![Player Class](/assets/img/readme/player.png)
 
+The player stats are never shown directly to the player and instead written into the story.
+While playing the player has to guess if they are strong or otherwise capable enough to undergo different options and the text gives them hints through their journey like "You feel stronger now", or "You are lucky and found ..." to have a sense about their own strengths.
+This way it isn't obvious what choices are best to make and leaves the player to watch out for story clues.
+
+### questionary
+To make user interaction more user friendly and minimize input errors, the ["questionary"](https://questionary.readthedocs.io/en/stable/) library was integrated into the game.
+This allows users to navigate through options using arrow keys and select their choice with the Enter key.
+The use of "questionary" serves as a robust error prevention mechanism, ensuring smooth and intuitive decision-making throughout the gameplay.
+User who haven't used a console before might as well be more familiar with this option, since it's not necessary to enter a lot of text or choose numbers from different options.
+
+### story telling experience
+To elevate the user experience, the text is deliberately revealed gradually on the screen, simulating the sensation of being written in real-time. This creates an intresting effect, akin to unfolding the pages of an actual story. This is allowing users to engage more deeply with the narrative as if reading a captivating tale, one sentence at a time. This approach aims to enhance the overall storytelling ambiance for a better user experience.
+
 ## Features
 
 ### Existing Features
+
+#### start screen
+The game commences with a start screen, featuring ASCII art, the title, and a count of the discovered endings. This screen serves as an introduction, providing a brief overview of the game's premise. Users are presented with options to initiate the game, reset their progress, or exit the application.
+
+![start screen](/assets/img/readme/start.png)
+
+#### Deleting the current score
+To reset all endings the user can delete the current scores by choosing this option from the main menu.
+Feedback about the progress is shown to the user and confirmation is needed before deleting.
+
+![delete option](/assets/img/readme/delete-yes.png)
+
+![delete](/assets/img/readme/delete-no.png)
+
+#### End the Game
+To end the game savely this option is offered in the start screen as well as after finishing the run.
+
+#### Entering a name
+Upon initiation, the game prompts the user to provide their name and validates the input received. Following this, the user is greeted by name, establishing a personalized connection. While the name isn't presently integrated into the gameplay, it is intended to utilize the player's name in conjunction with the discovered endings to formulate a leaderboard.
+
+![name](/assets/img/readme/name.png)
+
+#### Story, Chosing an answer
+At the core of the game lies the text-based storytelling. The interactive nature of the game unfolds through the selection of options that shape the story's progression. The user is prompted for feedback, and a set of options is presented, inviting the player to actively participate and make decisions that influence the direction of the narrative. This dynamic interaction not only engages the player in the unfolding tale but also empowers them to be a key architect of the story and explore different options.
+The whole story is written by myself.
+
+![game](/assets/img/readme/story.png)
 
 #### SpreadSheet
 The google sheet works as a database, designed to store the endings found by the user.
@@ -103,8 +143,6 @@ Each ending gets written into the google sheet when found and reset to the defau
 
 #### Multiple Accounts
 * Currently the game is build with one sheet that saves all the progress for everyone playing this game. It would be great to implement a login, so each player has there own save.
-
-## UX / UI 
 
 ## Testing
 
