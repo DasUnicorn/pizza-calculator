@@ -12,6 +12,64 @@ Read below to learn how to deploy the game youself or check out the [live-site](
 
 <!-- toc -->
 
+- [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+- [User Experience](#user-experience)
+  * [Target Audience](#target-audience)
+  * [User stories](#user-stories)
+    + [As a New Player:](#as-a-new-player)
+      - [I want clear instructions on how to make choices](#i-want-clear-instructions-on-how-to-make-choices)
+      - [I want a straightforward and intuitive interface](#i-want-a-straightforward-and-intuitive-interface)
+    + [For the game play:](#for-the-game-play)
+      - [I want a compelling and immersive narrative](#i-want-a-compelling-and-immersive-narrative)
+      - [I want my choices to have significant consequences](#i-want-my-choices-to-have-significant-consequences)
+      - [I want to see the immediate and long-term effects of my decisions](#i-want-to-see-the-immediate-and-long-term-effects-of-my-decisions)
+      - [I want to know how many possible endings there are](#i-want-to-know-how-many-possible-endings-there-are)
+      - [I want to know how many endings I have found](#i-want-to-know-how-many-endings-i-have-found)
+- [Design](#design)
+  * [Story and Inspiration](#story-and-inspiration)
+  * [Flowchart](#flowchart)
+  * [Gameplay](#gameplay)
+  * [questionary](#questionary)
+  * [story telling experience](#story-telling-experience)
+- [Features](#features)
+  * [Existing Features](#existing-features)
+    + [start screen](#start-screen)
+    + [Deleting the current score](#deleting-the-current-score)
+    + [End the Game](#end-the-game)
+    + [Entering a name](#entering-a-name)
+    + [Story, Chosing an answer](#story-chosing-an-answer)
+    + [Finding an ending](#finding-an-ending)
+    + [SpreadSheet](#spreadsheet)
+  * [Possible Future Features](#possible-future-features)
+    + [Accessibility](#accessibility)
+    + [Easier Replay](#easier-replay)
+    + [Multiple Accounts](#multiple-accounts)
+- [Testing](#testing)
+  * [Validator Testing](#validator-testing)
+    + [Lighthouse](#lighthouse)
+    + [PEP8](#pep8)
+  * [Manual Testing](#manual-testing)
+    + [Name Input](#name-input)
+    + [Level Design](#level-design)
+    + [Delete Score](#delete-score)
+    + [Exit Game](#exit-game)
+    + [Restart or Exit Game after ending is found](#restart-or-exit-game-after-ending-is-found)
+  * [Unfixed Bugs](#unfixed-bugs)
+    + [User input while slow text](#user-input-while-slow-text)
+  * [Fixed Bugs](#fixed-bugs)
+      - ["Inventory takes 1 argument, but 2 were given"](#inventory-takes-1-argument-but-2-were-given)
+      - ["level12() missing 1 requirement positional argument: 'player'""](#level12-missing-1-requirement-positional-argument-player)
+- [Dependencies](#dependencies)
+- [Deployment](#deployment)
+  * [Local Development](#local-development)
+    + [How to Clone](#how-to-clone)
+    + [How to Fork](#how-to-fork)
+  * [Deployment using Heroku](#deployment-using-heroku)
+- [Credits](#credits)
+
+<!-- tocstop -->
 
 ---
 
@@ -212,7 +270,7 @@ Due to the size of the file, the results can be found in a seperate file called 
 
 ### Unfixed Bugs
 
-#### User iput while slow text
+#### User input while slow text
 While the text is slowly printed on the screen, every input made by the user is displayed in the text.
 One potential solution is to temporarily disable keyboard input during the slow printing process. By implementing this approach, you ensure that user inputs are not inadvertently displayed in the text until the printing is complete. 
 
