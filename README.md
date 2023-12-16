@@ -156,6 +156,11 @@ Each ending gets written into the google sheet when found and reset to the defau
 
 ### Validator Testing
 
+#### Lighthouse
+The site pass the lighthouse test without Problems.
+Only SEO could be better.
+
+ ![lighthouse test result](/assets/img/readme/lh-test.png)
 
 #### PEP8
 All python code has been validated with the [pep8ci](https://pep8ci.herokuapp.com/) CI Python Linter.
@@ -205,30 +210,77 @@ Due to the size of the file, the results can be found in a seperate file called 
 
 ### Unfixed Bugs
 
+#### User iput while slow text
+While the text is slowly printed on the screen, every input made by the user is displayed in the text.
+One potential solution is to temporarily disable keyboard input during the slow printing process. By implementing this approach, you ensure that user inputs are not inadvertently displayed in the text until the printing is complete. 
+
+![bug-text](/assets/img/readme/bug-text.png)
 
 ### Fixed Bugs
 
-```
-    def set_stats(self, name, charisma, strength, luck, fellowship):
-        self.get_name = name
-        self.charisma = charisma
-        self.strength = strength
-        self.luck = luck
-        self.fellowship = fellowship
-```
+
+
+##### "Inventory takes 1 argument, but 2 were given"
+![bug inventory](/assets/img/readme/bug-inventory.png)
+After implementing the is_in_inventory it looked like this:
 
 ```
-    def set_stats(self, charisma, strength, luck, fellowship):
-        self.charisma = charisma
-        self.strength = strength
-        self.luck = luck
-        self.fellowship = fellowship
+    # --- Check inventory --- #
+    def is_in_inventory(obj):
+        """
+        Returns true if given object is in the players inventory.
+        Returns false if given objects is NOT in the players inventory.
+        """
+        if obj in self.inventory:
+            return True
+        else:
+            return False
+```
+Taking only on argument, the obj to check for, into account.
+But since multiple instances of a player object can be build, the code needs to be given a self to check.
+
+Solution:
 
 ```
+    # --- Check inventory --- #
+    def is_in_inventory(self, obj):
+        """
+        Returns true if given object is in the players inventory.
+        Returns false if given objects is NOT in the players inventory.
+        """
+        if obj in self.inventory:
+            return True
+        else:
+            return False
+```
+
+
+##### "level12() missing 1 requirement positional argument: 'player'""
+
+![bug player missing](/assets/img/readme/bug-player-missing.png)
+
+To transfer the current player object that contains the stats of the player from level to level it need to be handed down from function to function.
+
+Here I have missed to call the function level12() with the player object:
+
+```
+level12()
+```
+
+By giving it the current player, it can get and update stats inside the player object.
+
+```
+level12(player)
+```
+
+## Dependencies
+To start the python program succesfully, the following Dependencies are needed:
+* google-auth==2.22.0
+* google-auth-oauthlib==1.0.0
+* gspread==5.10.0
+* questionary==2.0.1
 
 ## Deployment
-
-
 
 ### Local Development
 
@@ -261,13 +313,21 @@ To fork the repository:
 8. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.
 9. Click Create fork.
 
+### Deployment using Heroku
+
+1. Register for an account on Heroku or sign in.
+2. Create a new app.
+3. Name your App.
+4. Add Node JS and Python packages to app setting.
+5. Connect github repository to Heroku app
+6. Deploy from "deploy", or choose an automatic deploy option.
+
 
 ## Credits
 * Markdown Table of Content by [Jon Schlinkert](https://github.com/jonschlinkert/markdown-toc)
-* https://patorjk.com/software/taag/#p=display&h=2&f=Big&t=work%20from%20home
-* https://www.asciiart.eu/nature/sunset
-* https://questionary.readthedocs.io/en/stable/
-* https://www.youtube.com/watch?v=m1oOFS8X-4s
-* https://packagecontrol.io/packages/AutoPEP8
-* https://css-pattern.com/
-* https://www.tablesgenerator.com/markdown_tables#
+* All Ascii Art is from [asciiart.eu](https://www.asciiart.eu/nature/sunset)
+* The Libary questionary and there docs can be found [here](https://questionary.readthedocs.io/en/stable/)
+* After some trouble with displaying the slow text, this [youtube video](https://www.youtube.com/watch?v=m1oOFS8X-4s) was used.
+* I used [AutoPEP8](https://packagecontrol.io/packages/AutoPEP8) as a Formatter in Sublime Text
+* The background CSS Art is from [css-pattern.com](https://css-pattern.com/)
+* To make pretty markdown tables, [tablesgenerator.com](https://www.tablesgenerator.com/markdown_tables#) was used.
