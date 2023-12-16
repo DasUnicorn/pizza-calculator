@@ -76,8 +76,6 @@ The preview of the board can be seen below. The [full Miro board](https://miro.c
 
 ![Miro Board](/assets/img/readme/miro.png)
 
-Here is the whole board as an iframe to check out:
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVNHT1bqI=/?moveToViewport=-2420,16,5878,2766&embedId=431902443377" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 If the miro board is down, you can find a low quality version of the board [here](/assets/doc/flowchart.pdf), a pro miro version would be needed for higher quality.
 
 ### Gameplay
