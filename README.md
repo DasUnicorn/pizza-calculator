@@ -104,9 +104,9 @@ Each ending gets written into the google sheet when found and reset to the defau
 #### Multiple Accounts
 * Currently the game is build with one sheet that saves all the progress for everyone playing this game. It would be great to implement a login, so each player has there own save.
 
+## UX / UI 
+
 ## Testing
-
-
 
 ### Validator Testing
 
@@ -116,6 +116,41 @@ https://pep8ci.herokuapp.com/
 
 
 ### Manual Testing
+
+#### Name Input
+
+| Feature                                   | Expected Outcome                                                                                                                                                           | Testing Performed                                       | Result                                                             | Pass/Fail |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------|-----------|
+| Name needs to start with a capital Letter | If the user enters a name that doesn't start with a capital letter, an error message shows up, the rules for a name are repeated and the user can enter a new name choice. | name "okay" is entered                                  | Error message shows up, rules show again, new input can be entered | Pass      |
+| Name only includes letters                | If the user enters a name that contains non letters, an error message shows up, the rules for a name are repeated and the user can enter a new name choice.                | name "Test123!" is entered                              | Error message shows up, rules show again, new input can be entered | Pass      |
+| Name can't be longer than 10 characters.  | If the user enters a name that is longer than 10 characters, an error message shows up, the rules for a name are repeated and the user can enter a new name choice.        | name "HallodiesisteinTestObdashierzulangist" is entered | Error message shows up, rules show again, new input can be entered | Pass      |
+| Valid Names should be accepted            | If the user enters a valid name, the game should start.                                                                                                                    | name "Ella" is entered.                                 | Game starts                                                        | Pass      |
+
+
+#### Level Design
+To test the level design, each potential ending undergoes a examination to ensure it can be reached through the intended pathway. This involves manual testing, where every conceivable route leading to an ending is carefully evaluated and documented in the corresponding test files. The path is represented by the sequence of options chosen during gameplay, with each number denoting the position of the respective answers. For instance, "4 - 2 - 1" signifies selecting the 4th option, followed by the 2nd, and finally the 1st option in the given context. This protocol ensures a comprehensive validation of the game's various storylines and endings.
+Due to the size of the file, the results can be found in a seperate file called "level-testen", which is saved in [CSV](/assets/tests/level-tests.csv) and [PDF](/assets/tests/level-tests.pdf) Version.
+
+#### Delete Score
+| Feature                                                                        | Expected Outcome                                                                                                                       | Testing Performed                   | Result                                                                                     | Pass/Fail |
+|--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------|-----------|
+| When a user selects to delete the score, they should be asked if they are sure | A text asks the user to validate the choice to delete the score                                                                        | Pressing "delete the current score" | The Text "Are you sure .." asks the user for validation                                    | pass      |
+| If pressed "no" the score should not be deleted.                               | when the user enters "no" when asks about the deletion for the score, the score should not be deleted and the user should be informed. | writing no                          | "Your score has not been deleted." shows up on the scrren and the score is not deleted.    | pass      |
+| if pressed "yes" the score should be deleted.                                  | When the user enters "yes, the score should be deleted and user be informed about the progress.                                        | writing yes                         | "Your score is getting deleted" and "Your score is deleted" appears. the score is deleted. |           |
+
+#### Exit Game
+
+| Feature                                                 | Expected Outcome                             | Testing Performed       | Result                               | Pass/Fail |
+|---------------------------------------------------------|----------------------------------------------|-------------------------|--------------------------------------|-----------|
+| When "End the game" is entered the program should exit. | The game exits and the python program stops. | Choosing "End the game" | The game ends and the program closes | pass      |
+
+
+#### Restart or Exit Game after ending is found
+
+| Feature                                                     | Expected Outcome                             | Testing Performed           | Result                               | Pass/Fail |
+|-------------------------------------------------------------|----------------------------------------------|-----------------------------|--------------------------------------|-----------|
+| When "Enough for today" is entered the program should exit. | The game exits and the python program stops. | Choosing "Enough for today" | The game ends and the program closes | pass      |
+| When "restart the game" is chosen the game should restart   | Game restarts                                | Choose "Restart the game"   | The game restarts                    | pass      |
 
 
 ### Unfixed Bugs
@@ -185,3 +220,4 @@ To fork the repository:
 * https://www.youtube.com/watch?v=m1oOFS8X-4s
 * https://packagecontrol.io/packages/AutoPEP8
 * https://css-pattern.com/
+* https://www.tablesgenerator.com/markdown_tables#
