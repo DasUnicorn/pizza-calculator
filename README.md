@@ -76,6 +76,10 @@ The preview of the board can be seen below. The [full Miro board](https://miro.c
 
 ![Miro Board](/assets/img/readme/miro.png)
 
+Here is the whole board as an iframe to check out:
+<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVNHT1bqI=/?moveToViewport=-2420,16,5878,2766&embedId=431902443377" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+If the miro board is down, you can find a low quality version of the board [here](/assets/doc/flowchart.pdf), a pro miro version would be needed for higher quality.
+
 ### Gameplay
 The game operates in the following manner: Users engage by making decisions, and in the background, a player object of the player class undergoes updates based on these choices. The player's character can experience growth or decline in stats, contingent on the decisions made. Additionally, the narrative takes divergent paths according to these choices. To achieve particular endings or storylines, players must have specific stats. Each player possesses an inventory where they can collect items, adding an extra layer of depth to the game.
 
@@ -184,7 +188,7 @@ There are no errors.
 
 #### Level Design
 To test the level design, each potential ending undergoes a examination to ensure it can be reached through the intended pathway. This involves manual testing, where every conceivable route leading to an ending is carefully evaluated and documented in the corresponding test files. The path is represented by the sequence of options chosen during gameplay, with each number denoting the position of the respective answers. For instance, "4 - 2 - 1" signifies selecting the 4th option, followed by the 2nd, and finally the 1st option in the given context. This protocol ensures a comprehensive validation of the game's various storylines and endings.
-Due to the size of the file, the results can be found in a seperate file called "level-testen", which is saved in [CSV](/assets/tests/level-tests.csv) and [PDF](/assets/tests/level-tests.pdf) Version.
+Due to the size of the file, the results can be found in a seperate file called "level-testen", which is saved in [CSV](/assets/doc/tests/level-tests.csv) and [PDF](/assets/doc/tests/level-tests.pdf) Version.
 
 #### Delete Score
 | Feature                                                                        | Expected Outcome                                                                                                                       | Testing Performed                   | Result                                                                                     | Pass/Fail |
