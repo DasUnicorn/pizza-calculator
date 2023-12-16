@@ -101,6 +101,8 @@ To elevate the user experience, the text is deliberately revealed gradually on t
 #### start screen
 The game commences with a start screen, featuring ASCII art, the title, and a count of the discovered endings. This screen serves as an introduction, providing a brief overview of the game's premise. Users are presented with options to initiate the game, reset their progress, or exit the application.
 
+![start screen](/assets/img/readme/ascii-art.png)
+
 ![start screen](/assets/img/readme/start.png)
 
 #### Deleting the current score
@@ -123,7 +125,12 @@ Upon initiation, the game prompts the user to provide their name and validates t
 At the core of the game lies the text-based storytelling. The interactive nature of the game unfolds through the selection of options that shape the story's progression. The user is prompted for feedback, and a set of options is presented, inviting the player to actively participate and make decisions that influence the direction of the narrative. This dynamic interaction not only engages the player in the unfolding tale but also empowers them to be a key architect of the story and explore different options.
 The whole story is written by myself.
 
-![game](/assets/img/readme/story.png)
+![game](/assets/img/readme/game.png)
+
+#### Finding an ending
+When an ending is found the user is presented with "the end" in ascii art as well as the number and name of the ending.
+
+![end](/assets/img/readme/end.png)
 
 #### SpreadSheet
 The google sheet works as a database, designed to store the endings found by the user.
@@ -143,6 +150,7 @@ Each ending gets written into the google sheet when found and reset to the defau
 
 #### Multiple Accounts
 * Currently the game is build with one sheet that saves all the progress for everyone playing this game. It would be great to implement a login, so each player has there own save.
+* The inclusion of a highscore board adds a competitive and goal-oriented dimension to the gaming experience. Players can compare their achievements, such as the number of endings discovered or other relevant metrics, fostering a sense of accomplishment and encouraging replayability.
 
 ## Testing
 
@@ -150,8 +158,12 @@ Each ending gets written into the google sheet when found and reset to the defau
 
 
 #### PEP8
-https://pep8ci.herokuapp.com/
+All python code has been validated with the [pep8ci](https://pep8ci.herokuapp.com/) CI Python Linter.
+There are no errors.
 
+![run.py](/assets/img/readme/run.png)
+![player.py](/assets/img/readme/player.png)
+![levels.py](/assets/img/readme/levels.png)
 
 ### Manual Testing
 
