@@ -349,7 +349,7 @@ def level13(player):
     if player.get_strength() >= 5:
         read_file("./assets/story/13-1-strong.txt")
         end(9, "Power Punch!")
-    elif player.get_luck() >= 10:
+    elif player.get_luck() >= 8:
         read_file("./assets/story/13-2-lucky-punch.txt")
         end(10, "Lucky Punch!")
     else:
