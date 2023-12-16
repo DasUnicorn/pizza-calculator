@@ -216,9 +216,9 @@ def save_ending(number):
     """
     Saves the given entry to the google sheet.
     """
-    slow_print("...saving your the ending...")
+    slow_print("\n...saving your the ending...\n")
     endings.update_cell(number, 2, 'TRUE')
-    slow_print("Ending has been saved.")
+    slow_print("Ending has been saved.\n")
 
 
 def main():
@@ -247,7 +247,7 @@ def main():
             if delete_check:
                 delete()
             else:
-                slow_print("Your score has NOT been deleted.")
+                slow_print("Your score has NOT been deleted.\n")
         # Start the game
         elif choice == "Start the game":
             ask_for_name(player)
