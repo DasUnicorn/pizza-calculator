@@ -39,7 +39,7 @@ class Player:
         return self.inventory
 
     # --- Check inventory --- #
-    def is_in_inventory(obj):
+    def is_in_inventory(self, obj):
         """
         Returns true if given object is in the players inventory.
         Returns false if given objects is NOT in the players inventory.
