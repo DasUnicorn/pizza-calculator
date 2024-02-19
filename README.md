@@ -1,3 +1,14 @@
+> [!NOTE]
+> If you've stumbled upon this, you're probably curious about what I've been up to. This project was created by me as a certificate requirement. Therefore, this README might look intimidating, but it had to cover all the bases for grading.
+> 
+> **In short:**
+> 
+> This is a Python terminal game that taught me how to deploy on Heroku, how to import and export data for personal players, and taught me to work with the Questionary library. I learned a lot about edge cases and user guidance by building it.
+> All the info below is from 2023 and might not be accurate anymore.
+>
+> *Have a wonderful day 👋*
+
+--------------------
 # "Work from Home" - Story Telling Game
 "Work from home" is an interactive storytelling game where players take on the role of the protagonist in a dynamic narrative. The game can be played in the console or in a virtual console in the web-browser.
 The game is centered around your first remote office day, where every choice you make influences the storyline and leads to different outcomes. Try to find as many endings as possible.
